@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/VideoP2P.iml" filepath="$PROJECT_DIR$/VideoP2P.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-ui.iml" filepath="$PROJECT_DIR$/web-ui.iml" />
     </modules>
   </component>
 </project>

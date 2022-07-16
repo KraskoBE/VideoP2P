@@ -1,14 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b8f86e4-d5a9-463f-9b4b-0909e738f72b" name="Changes" comment="" />
+    <list default="true" id="2b8f86e4-d5a9-463f-9b4b-0909e738f72b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/.vscode/extensions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/.vscode/launch.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/.vscode/tasks.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/WebApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/test/java/com/krasen/web/WebApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/web">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2C1wFPnX72RtPWS5wIahDKm11eo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -20,9 +90,29 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "openjdk-18",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\uni\\VideoP2P\\web-ui\\node_modules\\typescript\\lib"
   }
 }]]></component>
+  <component name="RunManager" selected="npm.Angular CLI Server (web-ui)">
+    <configuration name="Angular Application (web-ui)" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server (web-ui)" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/web-ui/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -31,7 +121,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657983296647</updated>
+      <workItem from="1657983297842" duration="572000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
