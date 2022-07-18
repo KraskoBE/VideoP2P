@@ -5,38 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b8f86e4-d5a9-463f-9b4b-0909e738f72b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/.browserslistrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/.vscode/extensions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/.vscode/launch.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/.vscode/tasks.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/angular.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/karma.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/app.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/assets/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/environments/environment.prod.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/environments/environment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/polyfills.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gradle_wrapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web/build.gradle" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
@@ -45,10 +19,30 @@
       <change afterPath="$PROJECT_DIR$/web/gradlew.bat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web/settings.gradle" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/WebApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/GlobalConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/NoRedirectStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/AuthEntryPointJwt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/AuthTokenFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/JwtAuthenticationProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/utils/JwtUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/controllers/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/JwtResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/SignUpRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/models/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/models/RoleType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/repositories/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/repositories/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/AuthServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/interfaces/AuthService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web/src/main/resources/application.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web/src/test/java/com/krasen/web/WebApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -65,42 +59,120 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/web">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="web" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="web" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="web" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/5.7.2/1e52816811778671041093fa2f2a4c12fc995f81/spring-security-config-5.7.2-sources.jar!/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/5.7.2/1e52816811778671041093fa2f2a4c12fc995f81/spring-security-config-5.7.2-sources.jar!/org/springframework/security/config/ldap/EmbeddedLdapServerContextSourceFactoryBean.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2C1wFPnX72RtPWS5wIahDKm11eo" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "openjdk-18",
+    "last_opened_file_path": "D:/uni/VideoP2P/web",
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "inlay.hints",
+    "spring.configuration.checksum": "bfb0fa3af7de8ed235fa4ef483a8ce4c",
     "ts.external.directory.path": "D:\\uni\\VideoP2P\\web-ui\\node_modules\\typescript\\lib"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
-  <component name="RunManager" selected="npm.Angular CLI Server (web-ui)">
+  <component name="RunManager" selected="Spring Boot.WebApplication">
+    <configuration name="web [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/web" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Angular Application (web-ui)" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
+    </configuration>
+    <configuration name="WebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="web.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.krasen.web.WebApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Angular CLI Server (web-ui)" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/web-ui/package.json" />
@@ -112,6 +184,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.web [bootRun]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -121,11 +198,47 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657983296647</updated>
-      <workItem from="1657983297842" duration="572000" />
+      <workItem from="1657983297842" duration="1491000" />
+      <workItem from="1657988650169" duration="224000" />
+      <workItem from="1657988885373" duration="1325000" />
+      <workItem from="1657992878786" duration="3784000" />
+      <workItem from="1658005721178" duration="1377000" />
+      <workItem from="1658067991598" duration="7078000" />
+      <workItem from="1658126126849" duration="2031000" />
+      <workItem from="1658140706561" duration="9259000" />
     </task>
+    <task id="LOCAL-00001" summary="init UI and Web projects">
+      <created>1657984182576</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657984182576</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/web" />
+    </ignored-roots>
+    <MESSAGE value="init UI and Web projects" />
+    <option name="LAST_COMMIT_MESSAGE" value="init UI and Web projects" />
   </component>
 </project>
