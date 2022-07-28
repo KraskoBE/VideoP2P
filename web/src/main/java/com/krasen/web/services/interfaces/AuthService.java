@@ -1,15 +1,14 @@
 package com.krasen.web.services.interfaces;
 
+import com.krasen.web.dtos.LoginRequest;
+import com.krasen.web.dtos.LoginResponse;
 import com.krasen.web.dtos.SignUpRequest;
-import com.krasen.web.models.User;
-
-import java.util.Optional;
+import com.krasen.web.dtos.SignUpResponse;
 
 public interface AuthService {
 
-    User register( SignUpRequest user ) throws Exception;
+    SignUpResponse register( SignUpRequest user ) throws Exception;
 
-    Optional<User> find( Long id );
+    LoginResponse login( LoginRequest loginRequest);
 
-    Optional<User> findByUsername( String username );
 }

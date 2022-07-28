@@ -5,46 +5,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b8f86e4-d5a9-463f-9b4b-0909e738f72b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/gradle_wrapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/WebApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/GlobalConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/NoRedirectStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/AuthEntryPointJwt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/AuthTokenFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/JwtAuthenticationProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/utils/JwtUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/controllers/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/JwtResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/SignUpRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/models/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/models/RoleType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/repositories/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/repositories/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/AuthServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/UserDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/interfaces/AuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/test/java/com/krasen/web/WebApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/app.routing.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/models/signUpRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/models/signUpResponse.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/models/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/providers/auth.guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/providers/error.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/providers/jwt.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/services/authentication.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/RestResponseEntityExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/LoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/SignUpResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/environments/environment.prod.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/polyfills.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/GlobalConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/DbConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/NoRedirectStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/NoRedirectStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/AuthEntryPointJwt.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/AuthEntryPointJwt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/AuthTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/AuthTokenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/JwtAuthenticationProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/JwtResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/SignUpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/SignUpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/models/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/repositories/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/repositories/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/interfaces/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/interfaces/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +152,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "inlay.hints",
+    "settings.editor.selected.configurable": "preferences.sourceCode.TypeScript",
     "spring.configuration.checksum": "bfb0fa3af7de8ed235fa4ef483a8ce4c",
     "ts.external.directory.path": "D:\\uni\\VideoP2P\\web-ui\\node_modules\\typescript\\lib"
   },
@@ -164,6 +184,9 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
+      <method v="2" />
+    </configuration>
     <configuration name="Angular Application (web-ui)" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
     </configuration>
@@ -186,6 +209,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.All in generated-requests" />
         <item itemvalue="Gradle.web [bootRun]" />
       </list>
     </recent_temporary>
@@ -205,7 +229,11 @@
       <workItem from="1658005721178" duration="1377000" />
       <workItem from="1658067991598" duration="7078000" />
       <workItem from="1658126126849" duration="2031000" />
-      <workItem from="1658140706561" duration="9259000" />
+      <workItem from="1658140706561" duration="9364000" />
+      <workItem from="1658166252618" duration="725000" />
+      <workItem from="1658988965107" duration="5869000" />
+      <workItem from="1658997288807" duration="2776000" />
+      <workItem from="1659016634119" duration="14107000" />
     </task>
     <task id="LOCAL-00001" summary="init UI and Web projects">
       <created>1657984182576</created>
@@ -214,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657984182576</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add basic auth">
+      <created>1658154331846</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658154331846</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +274,7 @@
       <path value="$PROJECT_DIR$/web" />
     </ignored-roots>
     <MESSAGE value="init UI and Web projects" />
-    <option name="LAST_COMMIT_MESSAGE" value="init UI and Web projects" />
+    <MESSAGE value="add basic auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="add basic auth" />
   </component>
 </project>

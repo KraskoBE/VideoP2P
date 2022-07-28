@@ -20,14 +20,15 @@ import javax.sql.DataSource;
 @EnableJpaRepositories( "com.krasen.web.repositories" )
 @PropertySource( "classpath:application.properties" )
 @EnableTransactionManagement
-public class GlobalConfig {
+public class DbConfig {
+
     private final String dbUrl;
     private final String dbUsername;
     private final String dbPassword;
     private final String dbDriver;
 
     @Autowired
-    public GlobalConfig( Environment environment ) {
+    public DbConfig( Environment environment ) {
         dbUrl = environment.getProperty( "spring.datasource.url" );
         dbUsername = environment.getProperty( "spring.datasource.username" );
         dbPassword = environment.getProperty( "spring.datasource.password" );

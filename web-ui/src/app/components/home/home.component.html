@@ -1,0 +1,5 @@
+<div *ngIf="authenticationService.currentUser">
+    <h3>Hi {{authenticationService.currentUser.firstName}} {{authenticationService.currentUser.lastName}}</h3>
+
+    <button mat-button (click)="testAuthenticatedRequest()">Test Request</button>
+</div>

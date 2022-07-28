@@ -18,6 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @EnableGlobalMethodSecurity( prePostEnabled = true )
 public class WebSecurityConfig {
+
     private final AuthEntryPointJwt unauthorizedHandler;
     private final AuthTokenFilter authTokenFilter;
 
@@ -52,11 +53,10 @@ public class WebSecurityConfig {
                 .authorizeRequests()
                 .antMatchers( "/api/auth/**" )
                 .permitAll()
-                .antMatchers( "/api/test/**" )
-                .permitAll()
                 .anyRequest()
                 .authenticated();
 
         return http.addFilterBefore( authTokenFilter, UsernamePasswordAuthenticationFilter.class ).build();
     }
+
 }

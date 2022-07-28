@@ -1,5 +1,6 @@
 package com.krasen.web.configuration.security;
 
+import lombok.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,21 +33,23 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     }
 
     @Override
-    protected void doFilterInternal( HttpServletRequest request, HttpServletResponse response, FilterChain filterChain ) throws
-            ServletException,
-            IOException {
+    protected void doFilterInternal( @NonNull HttpServletRequest request,
+                                     @NonNull HttpServletResponse response,
+                                     @NonNull FilterChain filterChain ) throws ServletException, IOException {
         try {
-            String jwt = parseJwt( request );
-            if ( jwt != null && jwtUtils.validateJwtToken( jwt ) ) {
-                String username = jwtUtils.getUserNameFromJwtToken( jwt );
+            String token = parseJwt( request );
+            if ( token != null && jwtUtils.validateToken( token ) ) {
+                String username = jwtUtils.getUserNameFromToken( token );
                 UserDetails userDetails = userDetailsService.loadUserByUsername( username );
-                UsernamePasswordAuthenticationToken authentication =
-                        new UsernamePasswordAuthenticationToken( userDetails, null, userDetails.getAuthorities() );
+
+                UsernamePasswordAuthenticationToken authentication;
+                authentication = new UsernamePasswordAuthenticationToken( userDetails, null, userDetails.getAuthorities() );
+
                 authentication.setDetails( new WebAuthenticationDetailsSource().buildDetails( request ) );
                 SecurityContextHolder.getContext().setAuthentication( authentication );
             }
         } catch ( Exception e ) {
-            logger.error( "Cannot set user authentication: {}", e );
+            logger.error( "Cannot set user authentication: {0}", e );
         }
         filterChain.doFilter( request, response );
     }
@@ -58,4 +61,5 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         }
         return null;
     }
+
 }

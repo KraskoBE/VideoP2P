@@ -29,4 +29,5 @@ public class SignUpRequest {
     @NotBlank
     @NotEmpty
     private String email;
+
 }
