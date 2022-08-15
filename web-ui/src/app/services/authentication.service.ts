@@ -31,12 +31,6 @@ export class AuthenticationService {
             .pipe();
     }
 
-    public testRequest(): Observable<string> {
-        return this.http
-            .get( `http://localhost:8080/api/auth/test`, { responseType: "text" } )
-            .pipe();
-    }
-
     public logout(): void {
         localStorage.removeItem( "currentUser" );
         this.currentUser = null;

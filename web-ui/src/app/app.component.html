@@ -1,11 +1,57 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="authenticationService.currentUser">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/">Home</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
-    </div>
-</nav>
+<mat-toolbar *ngIf="authenticationService.currentUser" color="primary">
+    <button mat-icon-button (click)="isSideNavOpened=!isSideNavOpened">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{windowTitle}}</span>
 
-<div class="jumbotron">
+    <span class="spacer"></span>
+
+    <button mat-button>
+        {{authenticationService.currentUser.firstName}}
+        <mat-icon>person</mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="Logout" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-sidenav-container *ngIf="authenticationService.currentUser">
+    <mat-sidenav mode="side" [opened]="isSideNavOpened">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/">
+                <mat-icon mat-list-icon>home</mat-icon>
+                Home
+            </a>
+
+            <a mat-list-item routerLink="/room">
+                <mat-icon mat-list-icon>meeting_room</mat-icon>
+                Join Room
+            </a>
+
+            <a mat-list-item routerLink="/profile">
+                <mat-icon mat-list-icon>face</mat-icon>
+                My Profile
+            </a>
+
+            <a mat-list-item>
+                <mat-icon mat-list-icon>list</mat-icon>
+                My Rooms
+            </a>
+
+            <a mat-list-item (click)="logout()">
+                <mat-icon mat-list-icon>logout</mat-icon>
+                Logout
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div *ngIf="!authenticationService.currentUser">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 offset-sm-3">

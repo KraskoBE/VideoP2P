@@ -1,4 +1,4 @@
-package com.krasen.web.configuration.security;
+package com.krasen.web.utils;
 
 import com.krasen.web.models.User;
 import io.jsonwebtoken.ExpiredJwtException;

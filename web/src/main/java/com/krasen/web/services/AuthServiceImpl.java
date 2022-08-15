@@ -1,6 +1,6 @@
 package com.krasen.web.services;
 
-import com.krasen.web.configuration.security.JwtUtils;
+import com.krasen.web.utils.JwtUtils;
 import com.krasen.web.dtos.LoginRequest;
 import com.krasen.web.dtos.LoginResponse;
 import com.krasen.web.dtos.SignUpRequest;

@@ -5,66 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b8f86e4-d5a9-463f-9b4b-0909e738f72b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/app.routing.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/models/signUpRequest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/models/signUpResponse.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/models/user.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/providers/auth.guard.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/providers/error.interceptor.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/providers/jwt.interceptor.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-ui/src/app/services/authentication.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/RestResponseEntityExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/LoginResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/SignUpResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/camera-view/camera-view.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/camera-view/camera-view.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-ui/src/app/components/camera-view/camera-view.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/websocket/SocketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/websocket/TextSocketMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/websocket/WebSocketConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/utils/WebSocketUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bcd07f78-8904-4301-ae3c-5c53b7046ce8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bcd07f78-8904-4301-ae3c-5c53b7046ce8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-ui/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-ui/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/angular.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/components/camera-view/camera-view.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-ui/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-ui/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-ui/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-ui/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-ui/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/environments/environment.prod.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-ui/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/app.routing.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/components/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/components/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-ui/src/app/services/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/services/authentication.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-ui/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-ui/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-ui/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/polyfills.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-ui/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-ui/src/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-ui/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/GlobalConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/DbConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/NoRedirectStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/NoRedirectStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/AuthEntryPointJwt.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/AuthEntryPointJwt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/web/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/AuthTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/AuthTokenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/JwtAuthenticationProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/JwtUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/configuration/security/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/utils/JwtUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/JwtResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/LoginRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/SignUpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/dtos/SignUpRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/models/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/repositories/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/repositories/RoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/repositories/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/AuthServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/UserDetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/interfaces/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/krasen/web/services/interfaces/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,35 +113,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "openjdk-18",
-    "last_opened_file_path": "D:/uni/VideoP2P/web",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.sourceCode.TypeScript",
-    "spring.configuration.checksum": "bfb0fa3af7de8ed235fa4ef483a8ce4c",
-    "ts.external.directory.path": "D:\\uni\\VideoP2P\\web-ui\\node_modules\\typescript\\lib"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-18&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/uni/java-webrtc&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;bfb0fa3af7de8ed235fa4ef483a8ce4c&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\uni\\VideoP2P\\web-ui\\node_modules\\typescript\\lib&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
-  <component name="RunManager" selected="Spring Boot.WebApplication">
+}</component>
+  <component name="RunManager" selected="npm.Angular CLI Server (web-ui)">
     <configuration name="web [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -233,7 +212,26 @@
       <workItem from="1658166252618" duration="725000" />
       <workItem from="1658988965107" duration="5869000" />
       <workItem from="1658997288807" duration="2776000" />
-      <workItem from="1659016634119" duration="14107000" />
+      <workItem from="1659016634119" duration="16298000" />
+      <workItem from="1659091739219" duration="1223000" />
+      <workItem from="1659094073226" duration="1351000" />
+      <workItem from="1659105284231" duration="2353000" />
+      <workItem from="1659183948432" duration="624000" />
+      <workItem from="1659546595550" duration="594000" />
+      <workItem from="1659549820443" duration="5509000" />
+      <workItem from="1659782916528" duration="4222000" />
+      <workItem from="1659798807504" duration="8728000" />
+      <workItem from="1659851095556" duration="2889000" />
+      <workItem from="1659861155748" duration="1159000" />
+      <workItem from="1659867474674" duration="1122000" />
+      <workItem from="1659872256612" duration="2002000" />
+      <workItem from="1659882618111" duration="561000" />
+      <workItem from="1659889042316" duration="1673000" />
+      <workItem from="1659892050962" duration="1394000" />
+      <workItem from="1660064346852" duration="657000" />
+      <workItem from="1660147877520" duration="3131000" />
+      <workItem from="1660568991885" duration="6284000" />
+      <workItem from="1660588972898" duration="3753000" />
     </task>
     <task id="LOCAL-00001" summary="init UI and Web projects">
       <created>1657984182576</created>
@@ -249,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658154331846</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="basic login/register added + auth interceptors and guards">
+      <created>1659037681661</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1659037681662</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +280,7 @@
     </ignored-roots>
     <MESSAGE value="init UI and Web projects" />
     <MESSAGE value="add basic auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="add basic auth" />
+    <MESSAGE value="basic login/register added + auth interceptors and guards" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic login/register added + auth interceptors and guards" />
   </component>
 </project>

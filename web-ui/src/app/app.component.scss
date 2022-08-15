@@ -1,0 +1,11 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-sidenav {
+  min-width: 8vw;
+}
+
+.mat-sidenav-content {
+  height: calc(100vh - 64px);
+}

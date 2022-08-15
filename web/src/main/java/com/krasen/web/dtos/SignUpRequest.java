@@ -3,6 +3,7 @@ package com.krasen.web.dtos;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
@@ -24,6 +25,7 @@ public class SignUpRequest {
 
     @NotBlank
     @NotEmpty
+    @Min( 6 )
     private String password;
 
     @NotBlank

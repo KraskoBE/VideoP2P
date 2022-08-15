@@ -1,5 +1,6 @@
 package com.krasen.web.configuration.security;
 
+import com.krasen.web.utils.JwtUtils;
 import lombok.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +16,14 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+import static java.util.Arrays.stream;
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 @Component
 public class AuthTokenFilter extends OncePerRequestFilter {
@@ -59,6 +65,16 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         if ( StringUtils.hasText( headerAuth ) && headerAuth.startsWith( "Bearer " ) ) {
             return headerAuth.substring( 7 );
         }
+
+        if ( isNull( request.getCookies() ) ) {
+            return null;
+        }
+
+        Cookie authCookie = stream( request.getCookies() ).filter( c -> c.getName().equals( "auth_token" ) ).findFirst().orElse( null );
+        if ( nonNull( authCookie ) ) {
+            return authCookie.getValue();
+        }
+
         return null;
     }
 
