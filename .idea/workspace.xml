@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b8f86e4-d5a9-463f-9b4b-0909e738f72b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/app/components/home/home.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,6 +195,7 @@
       <workItem from="1660568991885" duration="6284000" />
       <workItem from="1660588972898" duration="3947000" />
       <workItem from="1660596216902" duration="11000" />
+      <workItem from="1660666441665" duration="78000" />
     </task>
     <task id="LOCAL-00001" summary="init UI and Web projects">
       <created>1657984182576</created>
@@ -225,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660592804699</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add join room button">
+      <created>1660666466031</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1660666466032</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +260,7 @@
     <MESSAGE value="add basic auth" />
     <MESSAGE value="basic login/register added + auth interceptors and guards" />
     <MESSAGE value="change to scss and basic UI template" />
-    <option name="LAST_COMMIT_MESSAGE" value="change to scss and basic UI template" />
+    <MESSAGE value="add join room button" />
+    <option name="LAST_COMMIT_MESSAGE" value="add join room button" />
   </component>
 </project>
