@@ -17,7 +17,6 @@
                     <mat-divider></mat-divider>
 
                     <table class="w-100" mat-table [dataSource]="availableRooms">
-
                         <ng-container matColumnDef="roomId">
                             <th mat-header-cell *matHeaderCellDef>Room ID</th>
                             <td mat-cell *matCellDef="let element">{{element.roomId}}</td>
@@ -35,7 +34,9 @@
 
                         <ng-container matColumnDef="actions">
                             <th mat-header-cell *matHeaderCellDef>Actions</th>
-                            <td mat-cell *matCellDef="let element"><button mat-button mat-flat-button color="primary">Join Room</button></td>
+                            <td mat-cell *matCellDef="let element">
+                                <button mat-button mat-flat-button color="primary">Join Room</button>
+                            </td>
                         </ng-container>
 
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -56,29 +57,26 @@
                     <mat-divider></mat-divider>
 
                     <table class="w-100" mat-table [dataSource]="recentRooms">
-
-                        <!-- Position Column -->
                         <ng-container matColumnDef="roomId">
                             <th mat-header-cell *matHeaderCellDef>Room ID</th>
                             <td mat-cell *matCellDef="let element">{{element.roomId}}</td>
                         </ng-container>
 
-                        <!-- Name Column -->
                         <ng-container matColumnDef="duration">
                             <th mat-header-cell *matHeaderCellDef>Duration</th>
                             <td mat-cell *matCellDef="let element">{{element.duration}} min</td>
                         </ng-container>
 
-                        <!-- Weight Column -->
                         <ng-container matColumnDef="lastJoined">
                             <th mat-header-cell *matHeaderCellDef>Last Joined</th>
                             <td mat-cell *matCellDef="let element">{{element.lastJoined | date: "medium"}} </td>
                         </ng-container>
 
-                        <!-- Symbol Column -->
                         <ng-container matColumnDef="actions">
                             <th mat-header-cell *matHeaderCellDef>Actions</th>
-                            <td mat-cell *matCellDef="let element"><button mat-button mat-flat-button color="primary">Join Room</button></td>
+                            <td mat-cell *matCellDef="let element">
+                                <button mat-button mat-flat-button color="primary">Join Room</button>
+                            </td>
                         </ng-container>
 
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
