@@ -4,6 +4,8 @@ import {User} from "../models/user";
 import {Observable, tap} from "rxjs";
 import {SignUpRequest} from "../models/signUpRequest";
 import {SignUpResponse} from "../models/signUpResponse";
+import {LoginResponse} from "../models/loginResponse";
+import {LoginRequest} from "../models/loginRequest";
 
 @Injectable( { providedIn: "root" } )
 export class AuthenticationService {
@@ -16,9 +18,9 @@ export class AuthenticationService {
         }
     }
 
-    public login( username: string, password: string ): Observable<User> {
+    public login( loginRequest: LoginRequest ): Observable<LoginResponse> {
         return this.http
-            .post<User>( `http://localhost:8080/api/auth/login`, { username, password } )
+            .post<LoginResponse>( `http://localhost:8080/api/auth/login`, loginRequest )
             .pipe( tap( ( user: User ) => {
                 localStorage.setItem( "currentUser", JSON.stringify( user ) );
                 return this.currentUser = user;
@@ -27,7 +29,7 @@ export class AuthenticationService {
 
     public register( signUpRequest: SignUpRequest ): Observable<SignUpResponse> {
         return this.http
-            .post<User>( `http://localhost:8080/api/auth/signup`, signUpRequest )
+            .post<SignUpResponse>( `http://localhost:8080/api/auth/signup`, signUpRequest )
             .pipe();
     }
 

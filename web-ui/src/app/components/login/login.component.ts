@@ -5,6 +5,7 @@ import {first} from "rxjs/operators";
 import {AuthenticationService} from "../../services/authentication.service";
 import {User} from "../../models/user";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {LoginRequest} from "../../models/loginRequest";
 
 
 @Component( {
@@ -38,7 +39,12 @@ export class LoginComponent implements OnInit {
             return;
         }
 
-        this.authenticationService.login( this.loginFormGroup.get( "username" )?.value, this.loginFormGroup.get( "password" )?.value )
+        const loginRequest: LoginRequest = {
+            username: this.loginFormGroup.get( "username" )?.value,
+            password: this.loginFormGroup.get( "password" )?.value
+        };
+
+        this.authenticationService.login( loginRequest )
             .pipe( first() )
             .subscribe( {
                 next: ( user: User ) => {
