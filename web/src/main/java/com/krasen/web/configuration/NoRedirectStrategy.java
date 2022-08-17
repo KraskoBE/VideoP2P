@@ -1,9 +1,8 @@
 package com.krasen.web.configuration;
 
-import org.springframework.security.web.RedirectStrategy;
+import javax.servlet.http.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.security.web.RedirectStrategy;
 
 public class NoRedirectStrategy implements RedirectStrategy {
 

@@ -1,11 +1,10 @@
 package com.krasen.web.utils;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.krasen.web.configuration.websocket.TextSocketMessage;
 import org.springframework.web.socket.TextMessage;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.*;
+import com.krasen.web.configuration.websocket.TextSocketMessage;
 
 public class WebSocketUtils {
 
@@ -13,7 +12,7 @@ public class WebSocketUtils {
         ObjectWriter objectWriter = new ObjectMapper().writer().withDefaultPrettyPrinter();
         try {
             return new TextMessage( objectWriter.writeValueAsString( textSocketMessage ), true );
-        } catch ( JsonProcessingException e ) {
+        } catch( JsonProcessingException e ) {
             throw new RuntimeException( e );
         }
     }
@@ -22,7 +21,7 @@ public class WebSocketUtils {
         try {
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readValue( textMessage.getPayload(), TextSocketMessage.class );
-        } catch ( JsonProcessingException e ) {
+        } catch( JsonProcessingException e ) {
             throw new RuntimeException( e );
         }
     }
@@ -32,7 +31,7 @@ public class WebSocketUtils {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree( textMessage.getPayload() );
             return root.path( "key" ).textValue();
-        } catch ( JsonProcessingException e ) {
+        } catch( JsonProcessingException e ) {
             throw new RuntimeException( e );
         }
     }
@@ -42,7 +41,7 @@ public class WebSocketUtils {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree( textMessage.getPayload() );
             return root.path( "value" ).path( fieldName ).textValue();
-        } catch ( JsonProcessingException e ) {
+        } catch( JsonProcessingException e ) {
             throw new RuntimeException( e );
         }
     }

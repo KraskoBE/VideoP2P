@@ -1,9 +1,8 @@
 package com.krasen.web.dtos;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
 import javax.validation.constraints.NotBlank;
+
+import lombok.*;
 
 @Data
 @AllArgsConstructor

@@ -1,12 +1,11 @@
-import {Component} from "@angular/core";
-import {AuthenticationService} from "../../services/authentication.service";
+import { Component } from "@angular/core";
+import { AuthenticationService } from "../../services/authentication.service";
 
 export interface Room {
     roomId: number;
     duration: number;
     lastJoined: Date;
 }
-
 
 @Component( {
     selector: "home",
@@ -35,7 +34,10 @@ export class HomeComponent {
         return {
             roomId: Math.floor( Math.random() * 89999999 + 10000000 ),
             duration: Math.floor( Math.random() * 5 + 5 ),
-            lastJoined: new Date( new Date( 2022, 0, 1 ).getTime() + Math.random() * (new Date().getTime() - new Date( 2022, 0, 1 ).getTime()) )
+            lastJoined: new Date( new Date( 2022, 0, 1 ).getTime() + Math.random() * ( new Date().getTime() - new Date(
+                2022,
+                0,
+                1 ).getTime() ) )
         };
     }
 

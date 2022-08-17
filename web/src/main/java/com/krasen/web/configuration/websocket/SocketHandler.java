@@ -1,17 +1,13 @@
 package com.krasen.web.configuration.websocket;
 
-import lombok.NonNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
-import org.springframework.web.socket.CloseStatus;
-import org.springframework.web.socket.TextMessage;
-import org.springframework.web.socket.WebSocketSession;
-import org.springframework.web.socket.handler.TextWebSocketHandler;
-
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
+import lombok.NonNull;
+import org.slf4j.*;
+import org.springframework.stereotype.Component;
+import org.springframework.web.socket.*;
+import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import static com.krasen.web.utils.WebSocketUtils.*;
 
@@ -24,7 +20,7 @@ public class SocketHandler extends TextWebSocketHandler {
 
     @Override
     public void handleTextMessage( @NonNull WebSocketSession session, @NonNull TextMessage message ) throws IOException {
-        switch ( getTextMessageKey( message ) ) {
+        switch( getTextMessageKey( message ) ) {
             case "signal":
                 handleSignalMessage( session, message );
                 break;
@@ -37,8 +33,8 @@ public class SocketHandler extends TextWebSocketHandler {
 
     @Override
     public void afterConnectionEstablished( @NonNull WebSocketSession session ) throws Exception {
-        for ( WebSocketSession webSocketSession : sessions.values() ) {
-            if ( !webSocketSession.isOpen() ) {
+        for( WebSocketSession webSocketSession : sessions.values() ) {
+            if( !webSocketSession.isOpen() ) {
                 logger.warn( "Trying to write to a closed session!" );
                 continue;
             }
@@ -51,11 +47,11 @@ public class SocketHandler extends TextWebSocketHandler {
     public void afterConnectionClosed( @NonNull WebSocketSession session, @NonNull CloseStatus status ) throws IOException {
         sessions.remove( session.getId() );
 
-        for ( WebSocketSession webSocketSession : sessions.values() ) {
-            if ( session.getId().equals( webSocketSession.getId() ) ) {
+        for( WebSocketSession webSocketSession : sessions.values() ) {
+            if( session.getId().equals( webSocketSession.getId() ) ) {
                 continue;
             }
-            if ( webSocketSession.isOpen() ) {
+            if( webSocketSession.isOpen() ) {
                 webSocketSession.sendMessage( buildTextMessage( new TextSocketMessage( "stopReceive", session.getId() ) ) );
             }
         }
@@ -63,14 +59,14 @@ public class SocketHandler extends TextWebSocketHandler {
 
     private void handleSignalMessage( WebSocketSession session, TextMessage message ) throws IOException {
         String socketId = getTextMessageKeyValueByFieldName( message, "socketId" );
-        if ( !sessions.containsKey( socketId ) ) {
+        if( !sessions.containsKey( socketId ) ) {
             logger.warn( "Trying to write to a closed session!" );
             return;
         }
 
         String payload = message.getPayload();
         String newString = payload.substring( 0, payload.length() - 40 ) + String.format( "\"%s\"}}", session.getId() );
-        if ( !sessions.containsKey( socketId ) ) {
+        if( !sessions.containsKey( socketId ) ) {
             logger.warn( "Trying to write to a closed session!" );
             return;
         }
@@ -78,8 +74,8 @@ public class SocketHandler extends TextWebSocketHandler {
     }
 
     private void handleInitSendMessage( WebSocketSession session, TextMessage message ) throws IOException {
-        String initSocketId = (String) parseTextMessage( message ).getValue();
-        if ( !sessions.containsKey( initSocketId ) ) {
+        String initSocketId = ( String ) parseTextMessage( message ).getValue();
+        if( !sessions.containsKey( initSocketId ) ) {
             logger.warn( "Trying to write to a closed session!" );
             return;
         }

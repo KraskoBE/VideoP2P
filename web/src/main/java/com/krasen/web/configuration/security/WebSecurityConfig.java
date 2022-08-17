@@ -1,8 +1,7 @@
 package com.krasen.web.configuration.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -41,20 +40,20 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain( HttpSecurity http ) throws Exception {
         http.cors()
-                .and()
-                .csrf()
-                .disable()
-                .exceptionHandling()
-                .authenticationEntryPoint( unauthorizedHandler )
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy( SessionCreationPolicy.STATELESS )
-                .and()
-                .authorizeRequests()
-                .antMatchers( "/api/auth/**" )
-                .permitAll()
-                .anyRequest()
-                .authenticated();
+            .and()
+            .csrf()
+            .disable()
+            .exceptionHandling()
+            .authenticationEntryPoint( unauthorizedHandler )
+            .and()
+            .sessionManagement()
+            .sessionCreationPolicy( SessionCreationPolicy.STATELESS )
+            .and()
+            .authorizeRequests()
+            .antMatchers( "/api/auth/**" )
+            .permitAll()
+            .anyRequest()
+            .authenticated();
 
         return http.addFilterBefore( authTokenFilter, UsernamePasswordAuthenticationFilter.class ).build();
     }

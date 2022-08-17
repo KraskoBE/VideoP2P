@@ -1,10 +1,10 @@
-import {Component, OnInit} from "@angular/core";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {AuthenticationService} from "../../services/authentication.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {first} from "rxjs/operators";
-import {SignUpResponse} from "../../models/signUpResponse";
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { AuthenticationService } from "../../services/authentication.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { first } from "rxjs/operators";
+import { SignUpResponse } from "../../models/signUpResponse";
 
 @Component( {
     selector: "register",
@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
                  private router: Router,
                  private snackBar: MatSnackBar,
                  private authenticationService: AuthenticationService ) {
-        if ( this.authenticationService.currentUser ) {
+        if( this.authenticationService.currentUser ) {
             this.router.navigate( [ "/" ] );
         }
     }
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     public register(): void {
         this.registerFormGroup.markAsDirty();
 
-        if ( this.registerFormGroup.invalid ) {
+        if( this.registerFormGroup.invalid ) {
             return;
         }
 
@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
             .pipe( first() )
             .subscribe( {
                 next: ( user: SignUpResponse ) => {
-                    this.snackBar.open( `${user.username} Successfully registered! You can now log in!` );
+                    this.snackBar.open( `${ user.username } Successfully registered! You can now log in!` );
                     this.router.navigate( [ "/login" ] );
                 },
                 error: err => this.snackBar.open( err.error )

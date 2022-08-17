@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, OnDestroy} from "@angular/core";
-import {from, Observable, Subject, takeUntil} from "rxjs";
-import {webSocket} from "rxjs/webSocket";
+import { AfterViewInit, Component, OnDestroy } from "@angular/core";
+import { from, Observable, Subject, takeUntil } from "rxjs";
+import { webSocket } from "rxjs/webSocket";
 import * as SimplePeer from "simple-peer";
-import {Instance} from "simple-peer";
-import {AuthenticationService} from "../../services/authentication.service";
+import { Instance } from "simple-peer";
+import { AuthenticationService } from "../../services/authentication.service";
 
 @Component( {
     selector: "camera-view",
@@ -39,7 +39,6 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
         ]
     };
 
-
     constructor( private authenticationService: AuthenticationService ) {
     }
 
@@ -51,7 +50,7 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
     }
 
     public joinVideo(): void {
-        document.cookie = `auth_token=${this.authenticationService.currentUser?.token}`;
+        document.cookie = `auth_token=${ this.authenticationService.currentUser?.token }`;
         this.socketConnection.subscribe( {
             next: msg => this.handleIncomingMessage( msg ),
             error: err => console.log( err )
@@ -65,10 +64,13 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
     }
 
     private handleIncomingMessage( msg: any ): void {
-        switch ( msg.key ) {
+        switch( msg.key ) {
             case "initReceive":
                 this.addPeer( msg.value, false );
-                this.socketConnection.next( { key: "initSend", value: msg.value } );
+                this.socketConnection.next( {
+                    key: "initSend",
+                    value: msg.value
+                } );
                 break;
             case "initSend":
                 this.addPeer( msg.value, true );
@@ -95,18 +97,30 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
         } ) );
 
         this.peers.get( socketId )?.on( "signal", data => {
-            this.socketConnection.next( { key: "signal", value: { signal: data, socketId: socketId } } );
+            this.socketConnection.next( {
+                key: "signal",
+                value: {
+                    signal: data,
+                    socketId: socketId
+                }
+            } );
         } );
 
         this.peers.get( socketId )?.on( "stream", stream => {
-            this.videos.push( { id: socketId, stream: stream } );
+            this.videos.push( {
+                id: socketId,
+                stream: stream
+            } );
         } );
     }
 
     private requestLocalUserMedia(): Observable<MediaStream> {
         return from( navigator.mediaDevices.getUserMedia( {
             audio: true,
-            video: { width: 1920, height: 1080 }
+            video: {
+                width: 1920,
+                height: 1080
+            }
         } ) ).pipe( takeUntil( this.ngUnsubscribe ) );
     }
 }

@@ -1,16 +1,14 @@
 package com.krasen.web.controllers;
 
-import com.krasen.web.dtos.LoginRequest;
-import com.krasen.web.dtos.LoginResponse;
-import com.krasen.web.dtos.SignUpRequest;
-import com.krasen.web.dtos.SignUpResponse;
-import com.krasen.web.services.interfaces.AuthService;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import com.krasen.web.dtos.*;
+import com.krasen.web.services.interfaces.AuthService;
 
 @RestController
 @PreAuthorize( "isAnonymous()" )
