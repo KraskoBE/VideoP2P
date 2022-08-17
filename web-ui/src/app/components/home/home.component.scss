@@ -1,0 +1,16 @@
+video {
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    background-size: cover;
+    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: 0 19px 51px 0 rgba(0,0,0,0.16), 0 14px 19px 0 rgba(0,0,0,0.07);
+}
+
+.spacer {
+    flex: 1 1 auto;
+}

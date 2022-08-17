@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, AfterViewInit, OnDestroy } from "@angular/core";
 import { AuthenticationService } from "../../services/authentication.service";
+import { CameraService } from "src/app/services/camera.service";
 
 export interface Room {
     roomId: number;
@@ -12,22 +13,29 @@ export interface Room {
     templateUrl: "./home.component.html",
     styleUrls: [ "./home.component.scss" ]
 } )
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit, OnDestroy {
+    public displayedColumns: string[] = [ "roomId", "duration", "lastJoined", "actions" ];
+    public recentRooms: Room[] = [];
+    public availableRooms: Room[] = [];
+    public localStream: MediaStream;
 
-    displayedColumns: string[] = [ "roomId", "duration", "lastJoined", "actions" ];
-    recentRooms: Room[] = [];
-    availableRooms: Room[] = [];
-
-    constructor( public authenticationService: AuthenticationService ) {
+    constructor( public authenticationService: AuthenticationService, private cameraService: CameraService ) {
         [ ...Array( 20 ) ].map( () =>
             this.recentRooms.push( this.generateRoom() ) );
 
-        [ ...Array( 10 ) ].map( () =>
+        [ ...Array( 5 ) ].map( () =>
             this.availableRooms.push( this.generateRoom() ) );
 
         this.recentRooms.sort( ( a: Room, b: Room ) => b.lastJoined.getTime() - a.lastJoined.getTime() );
         this.availableRooms.sort( ( a: Room, b: Room ) => b.lastJoined.getTime() - a.lastJoined.getTime() );
 
+    }
+
+    public ngAfterViewInit(): void {
+        this.cameraService.requestLocalUserMedia().subscribe( {
+            next: ( mediaStream: MediaStream ) => this.localStream = mediaStream,
+            error: ( error ) => console.log( error )
+        } );
     }
 
     private generateRoom(): Room {
@@ -41,4 +49,23 @@ export class HomeComponent {
         };
     }
 
+    public ngOnDestroy(): void {
+        this.localStream.getVideoTracks().forEach( track => track.stop() );
+    }
+
+    public toggleCameraPreview(): void {
+        if( this.localStream?.active ) {
+            this.localStream.getTracks().forEach( track => track.stop() );
+            this.localStream = new MediaStream();
+        } else {
+            this.cameraService.requestLocalUserMedia().subscribe( {
+                next: ( mediaStream: MediaStream ) => this.localStream = mediaStream,
+                error: ( error ) => console.log( error )
+            } );
+        }
+    }
+
+    public isLocalStreamActive(): boolean {
+        return this.localStream?.active;
+    }
 }

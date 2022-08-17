@@ -55,6 +55,7 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
             next: msg => this.handleIncomingMessage( msg ),
             error: err => console.log( err )
         } );
+        document.cookie = "";
     }
 
     public ngOnDestroy(): void {
@@ -107,20 +108,14 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
         } );
 
         this.peers.get( socketId )?.on( "stream", stream => {
-            this.videos.push( {
-                id: socketId,
-                stream: stream
-            } );
+            this.videos.push( { id: socketId, stream: stream } );
         } );
     }
 
     private requestLocalUserMedia(): Observable<MediaStream> {
         return from( navigator.mediaDevices.getUserMedia( {
             audio: true,
-            video: {
-                width: 1920,
-                height: 1080
-            }
+            video: { width: 960, height: 540 }
         } ) ).pipe( takeUntil( this.ngUnsubscribe ) );
     }
 }
