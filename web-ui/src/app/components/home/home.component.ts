@@ -50,7 +50,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     }
 
     public ngOnDestroy(): void {
-        this.localStream.getVideoTracks().forEach( track => track.stop() );
+        this.localStream?.getVideoTracks().forEach( track => track.stop() );
     }
 
     public toggleCameraPreview(): void {
