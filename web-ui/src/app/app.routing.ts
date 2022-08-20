@@ -3,6 +3,10 @@ import { AuthGuard } from "./providers/auth.guard";
 import { LoginComponent } from "./components/login/login.component";
 import { HomeComponent } from "./components/home/home.component";
 import { RegisterComponent } from "./components/register/register.component";
+import { JoinRoomComponent } from "src/app/components/join-room/join-room.component";
+import { CreateRoomComponent } from "src/app/components/create-room/create-room.component";
+import { MyRoomsComponent } from "src/app/components/my-rooms/my-rooms.component";
+import { UserProfileComponent } from "src/app/components/user-profile/user-profile.component";
 
 const routes: Routes = [
     {
@@ -14,6 +18,30 @@ const routes: Routes = [
     {
         path: "login",
         component: LoginComponent
+    },
+    {
+        path: "room",
+        component: JoinRoomComponent,
+        canActivate: [ AuthGuard ],
+        data: { title: "Join Room" }
+    },
+    {
+        path: "create-room",
+        component: CreateRoomComponent,
+        canActivate: [ AuthGuard ],
+        data: { title: "Create a Room" }
+    },
+    {
+        path: "my-rooms",
+        component: MyRoomsComponent,
+        canActivate: [ AuthGuard ],
+        data: { title: "My Rooms" }
+    },
+    {
+        path: "profile",
+        component: UserProfileComponent,
+        canActivate: [ AuthGuard ],
+        data: { title: "My Profile" }
     },
     {
         path: "register",

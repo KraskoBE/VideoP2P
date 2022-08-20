@@ -29,14 +29,19 @@
                 Join Room
             </a>
 
+            <a mat-list-item routerLink="/create-room">
+                <mat-icon mat-list-icon>add</mat-icon>
+                Create a Room
+            </a>
+
+            <a mat-list-item routerLink="/my-rooms">
+                <mat-icon mat-list-icon>list</mat-icon>
+                My Rooms
+            </a>
+
             <a mat-list-item routerLink="/profile">
                 <mat-icon mat-list-icon>face</mat-icon>
                 My Profile
-            </a>
-
-            <a mat-list-item>
-                <mat-icon mat-list-icon>list</mat-icon>
-                My Rooms
             </a>
 
             <a mat-list-item (click)="logout()">
