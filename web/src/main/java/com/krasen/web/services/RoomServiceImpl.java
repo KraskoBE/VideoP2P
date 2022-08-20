@@ -1,6 +1,7 @@
 package com.krasen.web.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +21,13 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-
-    public RoomDTO create() {
+    public RoomDTO create( String roomName ) {
         User currentUser = ( User ) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return new RoomDTO( roomRepository.save( Room.builder().createdBy( currentUser ).build() ) );
+        try {
+            return new RoomDTO( roomRepository.save( Room.builder().name( roomName ).createdBy( currentUser ).build() ) );
+        } catch( DataIntegrityViolationException ex ) {
+            throw new
+        }
     }
 
 }

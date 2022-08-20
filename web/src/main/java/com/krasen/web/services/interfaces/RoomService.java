@@ -4,6 +4,6 @@ import com.krasen.web.dtos.RoomDTO;
 
 public interface RoomService {
 
-    RoomDTO create();
+    RoomDTO create( String roomName );
 
 }

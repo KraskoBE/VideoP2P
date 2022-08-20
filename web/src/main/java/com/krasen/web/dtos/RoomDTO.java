@@ -10,10 +10,12 @@ import com.krasen.web.models.Room;
 public class RoomDTO {
 
     private UUID id;
+    private String name;
     private Long createdById;
 
     public RoomDTO( Room room ) {
         this.id = room.getId();
+        this.name = room.getName();
         this.createdById = room.getCreatedBy().getId();
     }
 

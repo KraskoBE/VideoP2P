@@ -21,8 +21,8 @@ public class RoomController {
 
     @PostMapping
     @PreAuthorize( "hasRole('USER')" )
-    public ResponseEntity<RoomDTO> create() {
-        return ResponseEntity.ok( roomService.create() );
+    public ResponseEntity<RoomDTO> create( @RequestParam String roomName ) {
+        return ResponseEntity.ok( roomService.create( roomName ) );
     }
 
 }

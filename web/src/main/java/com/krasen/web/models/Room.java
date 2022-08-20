@@ -19,6 +19,9 @@ public class Room {
     @GeneratedValue
     private UUID id;
 
+    @Column( unique = true )
+    private String name;
+
     @ManyToOne
     @JsonIdentityReference( alwaysAsId = true )
     private User createdBy;
