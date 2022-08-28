@@ -3,15 +3,14 @@ package com.krasen.web.services;
 import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import com.krasen.web.dtos.*;
+import com.krasen.web.exceptions.GenericException;
 import com.krasen.web.models.*;
 import com.krasen.web.repositories.*;
 import com.krasen.web.services.interfaces.AuthService;
@@ -42,10 +41,10 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public SignUpResponse register( SignUpRequest signUpRequest ) {
         if( userRepository.existsByUsername( signUpRequest.getUsername() ) ) {
-            throw new ResponseStatusException( HttpStatus.BAD_REQUEST, "Username already exists" );
+            throw new GenericException( "Username already exists" );
         }
         if( userRepository.existsByEmail( signUpRequest.getEmail() ) ) {
-            throw new ResponseStatusException( HttpStatus.BAD_REQUEST, "Email already in use" );
+            throw new GenericException( "Email already in use" );
         }
 
         HashSet<Role> roles = new HashSet<>();

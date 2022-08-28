@@ -24,19 +24,13 @@ public class AuthController {
     }
 
     @PostMapping( "/signup" )
-    public ResponseEntity<SignUpResponse> signupUser( @Valid @RequestBody SignUpRequest signUpRequest ) throws Exception {
+    public ResponseEntity<SignUpResponse> signupUser( @Valid @RequestBody final SignUpRequest signUpRequest ) throws Exception {
         return ResponseEntity.ok( authService.register( signUpRequest ) );
     }
 
     @PostMapping( "/login" )
-    public ResponseEntity<LoginResponse> loginUser( @Valid @RequestBody LoginRequest loginRequest ) {
+    public ResponseEntity<LoginResponse> loginUser( @Valid @RequestBody final LoginRequest loginRequest ) {
         return ResponseEntity.ok( authService.login( loginRequest ) );
-    }
-
-    @GetMapping( "/test" )
-    @PreAuthorize( "hasRole('USER')" )
-    public ResponseEntity<String> test() throws Exception {
-        return ResponseEntity.ok( "Successs" );
     }
 
 }

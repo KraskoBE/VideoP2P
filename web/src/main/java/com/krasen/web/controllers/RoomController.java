@@ -6,7 +6,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import com.krasen.web.dtos.RoomDTO;
+import com.krasen.web.models.User;
 import com.krasen.web.services.interfaces.RoomService;
+import com.krasen.web.utils.CurrentUser;
 
 @RestController
 @RequestMapping( "/api/room" )
@@ -21,8 +23,8 @@ public class RoomController {
 
     @PostMapping
     @PreAuthorize( "hasRole('USER')" )
-    public ResponseEntity<RoomDTO> create( @RequestParam String roomName ) {
-        return ResponseEntity.ok( roomService.create( roomName ) );
+    public ResponseEntity<RoomDTO> create( @RequestParam final String roomName, @CurrentUser final User currentUser ) {
+        return ResponseEntity.ok( roomService.create( roomName, currentUser ) );
     }
 
 }
