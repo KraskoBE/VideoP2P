@@ -27,9 +27,11 @@ import { JoinRoomComponent } from './components/join-room/join-room.component';
 import { CreateRoomComponent } from './components/create-room/create-room.component';
 import { MyRoomsComponent } from './components/my-rooms/my-rooms.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { RoomListComponent } from './components/room-list/room-list.component';
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 @NgModule( {
-    declarations: [ AppComponent, LoginComponent, HomeComponent, RegisterComponent, CameraViewComponent, JoinRoomComponent, CreateRoomComponent, MyRoomsComponent, UserProfileComponent ],
+    declarations: [ AppComponent, LoginComponent, HomeComponent, RegisterComponent, CameraViewComponent, JoinRoomComponent, CreateRoomComponent, MyRoomsComponent, UserProfileComponent, RoomListComponent ],
     imports: [
         BrowserModule,
         ReactiveFormsModule,
@@ -46,7 +48,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
         MatIconModule,
         MatToolbarModule,
         MatTooltipModule,
-        MatTableModule
+        MatTableModule,
+        MatPaginatorModule
     ],
     providers: [
         {

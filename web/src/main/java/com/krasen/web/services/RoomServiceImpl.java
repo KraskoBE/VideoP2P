@@ -1,5 +1,8 @@
 package com.krasen.web.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +29,19 @@ public class RoomServiceImpl implements RoomService {
         } catch( Exception ex ) {
             throw new GenericException( "Room name already in use" );
         }
+    }
+
+    @Override
+    public List<RoomDTO> getUserRooms( User currentUser ) {
+        return roomRepository.getRoomsByCreatedByUsername( currentUser.getUsername() )
+                             .stream()
+                             .map( RoomDTO::new )
+                             .collect( Collectors.toList() );
+    }
+
+    @Override
+    public List<RoomDTO> getAllRooms() {
+        return roomRepository.findAll().stream().map( RoomDTO::new ).collect( Collectors.toList() );
     }
 
 }

@@ -11,12 +11,12 @@ public class RoomDTO {
 
     private UUID id;
     private String name;
-    private Long createdById;
+    private String createdBy;
 
     public RoomDTO( Room room ) {
         this.id = room.getId();
         this.name = room.getName();
-        this.createdById = room.getCreatedBy().getId();
+        this.createdBy = room.getCreatedBy().getUsername();
     }
 
 }

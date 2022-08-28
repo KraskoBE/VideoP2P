@@ -17,18 +17,20 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 
     @ExceptionHandler( value = { RuntimeException.class } )
     protected ResponseEntity<Object> handleGenericException( RuntimeException ex, WebRequest request ) {
-        String username = nonNull( request.getUserPrincipal() ) ? request.getUserPrincipal().getName() : "No user";
-        logger.warn( "[{}]: {}", username, ex.getMessage() );
+        logger.warn( "[{}]: {}", getPrincipalName( request ), ex.getMessage() );
 
         return handleExceptionInternal( ex, ex.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST, request );
     }
 
     @ExceptionHandler( value = { GenericException.class } )
     protected ResponseEntity<Object> handleGenericException( GenericException ex, WebRequest request ) {
-        String username = nonNull( request.getUserPrincipal() ) ? request.getUserPrincipal().getName() : "No user";
-        logger.warn( "[{}]: {}", username, ex.getMessage() );
+        logger.warn( "[{}]: {}", getPrincipalName( request ), ex.getMessage() );
 
         return handleExceptionInternal( ex, ex.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST, request );
+    }
+
+    private String getPrincipalName( WebRequest request ) {
+        return nonNull( request.getUserPrincipal() ) ? request.getUserPrincipal().getName() : "No user";
     }
 
 }

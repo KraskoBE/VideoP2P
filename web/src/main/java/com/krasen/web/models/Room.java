@@ -4,6 +4,7 @@ import java.util.UUID;
 import javax.persistence.*;
 
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 
@@ -20,6 +21,7 @@ public class Room {
     private UUID id;
 
     @Column( unique = true )
+    @Length( min = 6 )
     private String name;
 
     @ManyToOne

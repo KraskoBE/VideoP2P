@@ -1,5 +1,7 @@
 package com.krasen.web.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,6 +27,18 @@ public class RoomController {
     @PreAuthorize( "hasRole('USER')" )
     public ResponseEntity<RoomDTO> create( @RequestParam final String roomName, @CurrentUser final User currentUser ) {
         return ResponseEntity.ok( roomService.create( roomName, currentUser ) );
+    }
+
+    @GetMapping
+    @PreAuthorize( "hasRole('USER')" )
+    public ResponseEntity<List<RoomDTO>> getAllRooms() {
+        return ResponseEntity.ok( roomService.getAllRooms(  ) );
+    }
+
+    @GetMapping( "/my" )
+    @PreAuthorize( "hasRole('USER')" )
+    public ResponseEntity<List<RoomDTO>> getUserRooms( @CurrentUser final User currentUser ) {
+        return ResponseEntity.ok( roomService.getUserRooms( currentUser ) );
     }
 
 }

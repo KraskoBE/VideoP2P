@@ -1,5 +1,21 @@
 <div class="row m-0 pt-3">
-    <div class="col">
-        <mat-card class="mb-2">Create a Room works</mat-card>
+    <div class="col-3">
+        <mat-card class="mb-2">
+            <form *ngIf=roomCreationForm class="align-items-between" [formGroup]="roomCreationForm" (ngSubmit)="createRoom()">
+                <mat-form-field appearance="standard">
+                    <mat-label>Room Name</mat-label>
+                    <input matInput type="text" formControlName="roomName" />
+                    <mat-error *ngIf="roomCreationForm.get('roomName')?.invalid">Room Name should be at least 6 characters long</mat-error>
+                </mat-form-field>
+
+                <button class="ms-3" mat-raised-button color="primary" type="submit">Create</button>
+            </form>
+        </mat-card>
+    </div>
+
+    <div class="col-6">
+        <mat-card class="mb-2">
+            <room-list [rooms]="userRooms"></room-list>
+        </mat-card>
     </div>
 </div>
