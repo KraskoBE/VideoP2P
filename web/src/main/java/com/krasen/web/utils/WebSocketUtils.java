@@ -4,7 +4,7 @@ import org.springframework.web.socket.TextMessage;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.*;
-import com.krasen.web.configuration.websocket.TextSocketMessage;
+import com.krasen.web.websocket.TextSocketMessage;
 
 public class WebSocketUtils {
 

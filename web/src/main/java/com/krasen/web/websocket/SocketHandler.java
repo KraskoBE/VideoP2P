@@ -1,4 +1,4 @@
-package com.krasen.web.configuration.websocket;
+package com.krasen.web.websocket;
 
 import java.io.IOException;
 import java.util.*;
