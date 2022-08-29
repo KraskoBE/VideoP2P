@@ -23,15 +23,24 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatTableModule } from "@angular/material/table";
-import { JoinRoomComponent } from './components/join-room/join-room.component';
-import { CreateRoomComponent } from './components/create-room/create-room.component';
-import { MyRoomsComponent } from './components/my-rooms/my-rooms.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { RoomListComponent } from './components/room-list/room-list.component';
+import { JoinRoomComponent } from "./components/join-room/join-room.component";
+import { MyRoomsComponent } from "./components/my-rooms/my-rooms.component";
+import { UserProfileComponent } from "./components/user-profile/user-profile.component";
+import { RoomListComponent } from "./components/room-list/room-list.component";
 import { MatPaginatorModule } from "@angular/material/paginator";
 
 @NgModule( {
-    declarations: [ AppComponent, LoginComponent, HomeComponent, RegisterComponent, CameraViewComponent, JoinRoomComponent, CreateRoomComponent, MyRoomsComponent, UserProfileComponent, RoomListComponent ],
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        HomeComponent,
+        RegisterComponent,
+        CameraViewComponent,
+        JoinRoomComponent,
+        MyRoomsComponent,
+        UserProfileComponent,
+        RoomListComponent
+    ],
     imports: [
         BrowserModule,
         ReactiveFormsModule,
