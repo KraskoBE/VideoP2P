@@ -1,6 +1,8 @@
 import { Component, AfterViewInit, OnDestroy } from "@angular/core";
 import { AuthenticationService } from "../../services/authentication.service";
 import { CameraService } from "src/app/services/camera.service";
+import { RoomDto } from "src/app/models/roomDto";
+import { RoomService } from "src/app/services/room.service";
 
 export interface Room {
     roomId: number;
@@ -15,20 +17,18 @@ export interface Room {
 } )
 export class HomeComponent implements AfterViewInit, OnDestroy {
     public displayedColumns: string[] = [ "roomId", "duration", "lastJoined", "actions" ];
-    public recentRooms: Room[] = [];
+    userRooms: RoomDto[] = [];
     public availableRooms: Room[] = [];
     public localStream: MediaStream;
 
-    constructor( public authenticationService: AuthenticationService, private cameraService: CameraService ) {
-        [ ...Array( 20 ) ].map( () =>
-            this.recentRooms.push( this.generateRoom() ) );
-
+    constructor( public authenticationService: AuthenticationService,
+                 private cameraService: CameraService,
+                 private roomService: RoomService ) {
         [ ...Array( 5 ) ].map( () =>
             this.availableRooms.push( this.generateRoom() ) );
-
-        this.recentRooms.sort( ( a: Room, b: Room ) => b.lastJoined.getTime() - a.lastJoined.getTime() );
         this.availableRooms.sort( ( a: Room, b: Room ) => b.lastJoined.getTime() - a.lastJoined.getTime() );
 
+        this.updateRoomList();
     }
 
     public ngAfterViewInit(): void {
@@ -36,6 +36,10 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
             next: ( mediaStream: MediaStream ) => this.localStream = mediaStream,
             error: ( error ) => console.log( error )
         } );
+    }
+
+    private updateRoomList(): void {
+        this.roomService.getUserRooms().subscribe( ( rooms: RoomDto[] ) => this.userRooms = rooms );
     }
 
     private generateRoom(): Room {
@@ -49,23 +53,20 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         };
     }
 
-    public ngOnDestroy(): void {
-        this.localStream?.getVideoTracks().forEach( track => track.stop() );
-    }
-
     public toggleCameraPreview(): void {
         if( this.localStream?.active ) {
             this.localStream.getTracks().forEach( track => track.stop() );
             this.localStream = new MediaStream();
         } else {
-            this.cameraService.requestLocalUserMedia().subscribe( {
-                next: ( mediaStream: MediaStream ) => this.localStream = mediaStream,
-                error: ( error ) => console.log( error )
-            } );
+            this.cameraService.requestLocalUserMedia().subscribe( ( mediaStream: MediaStream ) => this.localStream = mediaStream );
         }
     }
 
     public isLocalStreamActive(): boolean {
         return this.localStream?.active;
+    }
+
+    public ngOnDestroy(): void {
+        this.localStream?.getVideoTracks().forEach( track => track.stop() );
     }
 }

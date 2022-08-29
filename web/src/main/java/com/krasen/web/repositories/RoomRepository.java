@@ -10,6 +10,8 @@ import com.krasen.web.models.Room;
 @Repository
 public interface RoomRepository extends JpaRepository<Room, UUID> {
 
-    List<Room> getRoomsByCreatedByUsername( String username );
+    List<Room> getRoomsByCreatedByUsernameOrderByCreatedOnDesc( String username );
+
+    List<Room> getAllByOrderByCreatedOnDesc();
 
 }

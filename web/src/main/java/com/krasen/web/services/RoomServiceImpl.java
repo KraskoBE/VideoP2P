@@ -1,6 +1,6 @@
 package com.krasen.web.services;
 
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,11 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public RoomDTO create( String roomName, User currentUser ) {
         try {
-            return new RoomDTO( roomRepository.save( Room.builder().name( roomName ).createdBy( currentUser ).build() ) );
+            return new RoomDTO( roomRepository.save( Room.builder()
+                                                         .name( roomName )
+                                                         .createdBy( currentUser )
+                                                         .createdOn( new Date() )
+                                                         .build() ) );
         } catch( Exception ex ) {
             throw new GenericException( "Room name already in use" );
         }
@@ -33,7 +37,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public List<RoomDTO> getUserRooms( User currentUser ) {
-        return roomRepository.getRoomsByCreatedByUsername( currentUser.getUsername() )
+        return roomRepository.getRoomsByCreatedByUsernameOrderByCreatedOnDesc( currentUser.getUsername() )
                              .stream()
                              .map( RoomDTO::new )
                              .collect( Collectors.toList() );
@@ -41,7 +45,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public List<RoomDTO> getAllRooms() {
-        return roomRepository.findAll().stream().map( RoomDTO::new ).collect( Collectors.toList() );
+        return roomRepository.getAllByOrderByCreatedOnDesc().stream().map( RoomDTO::new ).collect( Collectors.toList() );
     }
 
 }

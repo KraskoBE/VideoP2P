@@ -68,39 +68,14 @@
         <div class="col-7">
             <mat-card>
                 <mat-card-header>
-                    <h3>Recently joined rooms</h3>
+                    <h3>Your rooms</h3>
                 </mat-card-header>
 
                 <mat-card-content>
 
                     <mat-divider></mat-divider>
 
-                    <table class="w-100" mat-table [dataSource]="recentRooms">
-                        <ng-container matColumnDef="roomId">
-                            <th mat-header-cell *matHeaderCellDef>Room ID</th>
-                            <td mat-cell *matCellDef="let element">{{element.roomId}}</td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="duration">
-                            <th mat-header-cell *matHeaderCellDef>Duration</th>
-                            <td mat-cell *matCellDef="let element">{{element.duration}} min</td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="lastJoined">
-                            <th mat-header-cell *matHeaderCellDef>Last Joined</th>
-                            <td mat-cell *matCellDef="let element">{{element.lastJoined | date: "medium"}} </td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="actions">
-                            <th mat-header-cell *matHeaderCellDef>Actions</th>
-                            <td mat-cell *matCellDef="let element">
-                                <button mat-button mat-flat-button color="primary">Join Room</button>
-                            </td>
-                        </ng-container>
-
-                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                    </table>
+                    <room-list [rooms]="userRooms" [pageSize]="20"></room-list>
                 </mat-card-content>
             </mat-card>
         </div>

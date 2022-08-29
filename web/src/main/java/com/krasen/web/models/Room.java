@@ -1,10 +1,11 @@
 package com.krasen.web.models;
 
-import java.util.UUID;
+import java.util.*;
 import javax.persistence.*;
 
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.data.annotation.CreatedDate;
 
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 
@@ -27,5 +28,8 @@ public class Room {
     @ManyToOne
     @JsonIdentityReference( alwaysAsId = true )
     private User createdBy;
+
+    @CreatedDate
+    private Date createdOn;
 
 }
