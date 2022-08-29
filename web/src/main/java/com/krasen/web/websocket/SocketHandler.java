@@ -19,15 +19,19 @@ public class SocketHandler extends TextWebSocketHandler {
     Map<String, WebSocketSession> sessions = new HashMap<>();
 
     @Override
-    public void handleTextMessage( @NonNull WebSocketSession session, @NonNull TextMessage message ) throws IOException {
-        switch( getTextMessageKey( message ) ) {
-            case "signal":
-                handleSignalMessage( session, message );
-                break;
-            case "initSend":
-                handleInitSendMessage( session, message );
-                break;
-            default:
+    public void handleTextMessage( @NonNull WebSocketSession session, @NonNull TextMessage message ) {
+        try {
+            switch( getTextMessageKey( message ) ) {
+                case "signal":
+                    handleSignalMessage( session, message );
+                    break;
+                case "initSend":
+                    handleInitSendMessage( session, message );
+                    break;
+                default:
+            }
+        } catch( Exception e ) {
+            logger.warn( "[{}] - Couldn't parse message: {}", session.getPrincipal().getName(), message );
         }
     }
 
@@ -35,7 +39,6 @@ public class SocketHandler extends TextWebSocketHandler {
     public void afterConnectionEstablished( @NonNull WebSocketSession session ) throws Exception {
         for( WebSocketSession webSocketSession : sessions.values() ) {
             if( !webSocketSession.isOpen() ) {
-                logger.warn( "Trying to write to a closed session!" );
                 continue;
             }
             webSocketSession.sendMessage( buildTextMessage( new TextSocketMessage( "initReceive", session.getId() ) ) );
@@ -60,14 +63,12 @@ public class SocketHandler extends TextWebSocketHandler {
     private void handleSignalMessage( WebSocketSession session, TextMessage message ) throws IOException {
         String socketId = getTextMessageKeyValueByFieldName( message, "socketId" );
         if( !sessions.containsKey( socketId ) ) {
-            logger.warn( "Trying to write to a closed session!" );
             return;
         }
 
         String payload = message.getPayload();
         String newString = payload.substring( 0, payload.length() - 40 ) + String.format( "\"%s\"}}", session.getId() );
         if( !sessions.containsKey( socketId ) ) {
-            logger.warn( "Trying to write to a closed session!" );
             return;
         }
         sessions.get( socketId ).sendMessage( new TextMessage( newString ) );
@@ -76,7 +77,6 @@ public class SocketHandler extends TextWebSocketHandler {
     private void handleInitSendMessage( WebSocketSession session, TextMessage message ) throws IOException {
         String initSocketId = ( String ) parseTextMessage( message ).getValue();
         if( !sessions.containsKey( initSocketId ) ) {
-            logger.warn( "Trying to write to a closed session!" );
             return;
         }
         sessions.get( initSocketId ).sendMessage( buildTextMessage( new TextSocketMessage( "initSend", session.getId() ) ) );

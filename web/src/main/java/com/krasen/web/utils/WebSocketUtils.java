@@ -8,42 +8,26 @@ import com.krasen.web.websocket.TextSocketMessage;
 
 public class WebSocketUtils {
 
-    public static TextMessage buildTextMessage( TextSocketMessage textSocketMessage ) {
+    public static TextMessage buildTextMessage( TextSocketMessage textSocketMessage ) throws JsonProcessingException {
         ObjectWriter objectWriter = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        try {
-            return new TextMessage( objectWriter.writeValueAsString( textSocketMessage ), true );
-        } catch( JsonProcessingException e ) {
-            throw new RuntimeException( e );
-        }
+        return new TextMessage( objectWriter.writeValueAsString( textSocketMessage ), true );
     }
 
-    public static TextSocketMessage parseTextMessage( TextMessage textMessage ) {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue( textMessage.getPayload(), TextSocketMessage.class );
-        } catch( JsonProcessingException e ) {
-            throw new RuntimeException( e );
-        }
+    public static TextSocketMessage parseTextMessage( TextMessage textMessage ) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue( textMessage.getPayload(), TextSocketMessage.class );
     }
 
-    public static String getTextMessageKey( TextMessage textMessage ) {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode root = mapper.readTree( textMessage.getPayload() );
-            return root.path( "key" ).textValue();
-        } catch( JsonProcessingException e ) {
-            throw new RuntimeException( e );
-        }
+    public static String getTextMessageKey( TextMessage textMessage ) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree( textMessage.getPayload() );
+        return root.path( "key" ).textValue();
     }
 
-    public static String getTextMessageKeyValueByFieldName( TextMessage textMessage, String fieldName ) {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode root = mapper.readTree( textMessage.getPayload() );
-            return root.path( "value" ).path( fieldName ).textValue();
-        } catch( JsonProcessingException e ) {
-            throw new RuntimeException( e );
-        }
+    public static String getTextMessageKeyValueByFieldName( TextMessage textMessage, String fieldName ) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree( textMessage.getPayload() );
+        return root.path( "value" ).path( fieldName ).textValue();
     }
 
 }
