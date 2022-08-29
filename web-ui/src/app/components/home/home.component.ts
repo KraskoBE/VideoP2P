@@ -4,31 +4,21 @@ import { CameraService } from "src/app/services/camera.service";
 import { RoomDto } from "src/app/models/roomDto";
 import { RoomService } from "src/app/services/room.service";
 
-export interface Room {
-    roomId: number;
-    duration: number;
-    lastJoined: Date;
-}
-
 @Component( {
     selector: "home",
     templateUrl: "./home.component.html",
     styleUrls: [ "./home.component.scss" ]
 } )
 export class HomeComponent implements AfterViewInit, OnDestroy {
-    public displayedColumns: string[] = [ "roomId", "duration", "lastJoined", "actions" ];
     userRooms: RoomDto[] = [];
-    public availableRooms: Room[] = [];
-    public localStream: MediaStream;
+    availableRooms: RoomDto[] = [];
+    localStream: MediaStream;
 
     constructor( public authenticationService: AuthenticationService,
                  private cameraService: CameraService,
                  private roomService: RoomService ) {
-        [ ...Array( 5 ) ].map( () =>
-            this.availableRooms.push( this.generateRoom() ) );
-        this.availableRooms.sort( ( a: Room, b: Room ) => b.lastJoined.getTime() - a.lastJoined.getTime() );
-
-        this.updateRoomList();
+        this.updateUserRoomList();
+        this.updateAvailableRoomList();
     }
 
     public ngAfterViewInit(): void {
@@ -38,19 +28,12 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         } );
     }
 
-    private updateRoomList(): void {
+    private updateUserRoomList(): void {
         this.roomService.getUserRooms().subscribe( ( rooms: RoomDto[] ) => this.userRooms = rooms );
     }
 
-    private generateRoom(): Room {
-        return {
-            roomId: Math.floor( Math.random() * 89999999 + 10000000 ),
-            duration: Math.floor( Math.random() * 5 + 5 ),
-            lastJoined: new Date( new Date( 2022, 0, 1 ).getTime() + Math.random() * ( new Date().getTime() - new Date(
-                2022,
-                0,
-                1 ).getTime() ) )
-        };
+    private updateAvailableRoomList(): void {
+        this.roomService.getAllRooms().subscribe( ( rooms: RoomDto[] ) => this.availableRooms = rooms );
     }
 
     public toggleCameraPreview(): void {
