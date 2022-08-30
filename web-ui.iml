@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$/web-ui">
       <excludeFolder url="file://$MODULE_DIR$/web-ui/dist" />
       <excludeFolder url="file://$MODULE_DIR$/web-ui/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/web-ui/.angular/cache" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
