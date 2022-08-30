@@ -1,6 +1,8 @@
 <video #video [autoplay]="true" [muted]="true" [srcObject]="localStream" width="960" height="540"></video>
 
-<button mat-raised-button color="primary" (click)="joinVideo()">JOIN</button>
+{{ roomId }}
+
+<button mat-raised-button color="primary" (click)="joinVideo()">JOIN VIDEO</button>
 
 <div *ngFor="let video of videos" [id]="video.id" class="container">
     <video [autoplay]="true" [muted]="true" [srcObject]="video.stream" width="960" height="540"></video>

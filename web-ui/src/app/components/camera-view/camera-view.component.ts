@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy } from "@angular/core";
+import { AfterViewInit, Component, OnDestroy, Input } from "@angular/core";
 import { from, Observable, Subject, takeUntil } from "rxjs";
 import { webSocket, WebSocketSubject } from "rxjs/webSocket";
 import * as SimplePeer from "simple-peer";
@@ -11,10 +11,12 @@ import { AuthenticationService } from "../../services/authentication.service";
     styleUrls: [ "./camera-view.component.scss" ]
 } )
 export class CameraViewComponent implements AfterViewInit, OnDestroy {
+
+    @Input() roomId: string;
+
     public localStream: MediaStream;
     public videos: { id: string, stream: MediaStream }[] = [];
     private ngUnsubscribe: Subject<void> = new Subject<void>();
-    // private socketConnection: WebSocketSubject<any> = webSocket( "ws://localhost:8080/socket" );
     private socketConnection: WebSocketSubject<any> = webSocket( {
         url: "ws://localhost:8080/socket",
         openObserver: {
@@ -64,7 +66,7 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
 
     public joinVideo(): void {
         document.cookie = `authToken=${ this.authenticationService.currentUser?.token }`;
-        document.cookie = "roomId=ca157488-85b7-4d90-b8ff-055d15759338";
+        document.cookie = `roomId=${ this.roomId }`;
 
         this.socketConnection.subscribe( {
             next: msg => this.handleIncomingMessage( msg ),
@@ -77,6 +79,8 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
         this.ngUnsubscribe.complete();
         this.localStream.getVideoTracks().forEach( track => track.stop() );
         this.socketConnection.complete();
+        document.cookie = "authToken=";
+        document.cookie = "roomId=";
     }
 
     private handleIncomingMessage( msg: any ): void {
