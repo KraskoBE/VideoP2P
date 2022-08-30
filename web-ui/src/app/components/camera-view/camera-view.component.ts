@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnDestroy } from "@angular/core";
 import { from, Observable, Subject, takeUntil } from "rxjs";
-import { webSocket } from "rxjs/webSocket";
+import { webSocket, WebSocketSubject } from "rxjs/webSocket";
 import * as SimplePeer from "simple-peer";
 import { Instance } from "simple-peer";
 import { AuthenticationService } from "../../services/authentication.service";
@@ -14,7 +14,20 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
     public localStream: MediaStream;
     public videos: { id: string, stream: MediaStream }[] = [];
     private ngUnsubscribe: Subject<void> = new Subject<void>();
-    private socketConnection: Subject<any> = webSocket( "ws://localhost:8080/socket" );
+    // private socketConnection: WebSocketSubject<any> = webSocket( "ws://localhost:8080/socket" );
+    private socketConnection: WebSocketSubject<any> = webSocket( {
+        url: "ws://localhost:8080/socket",
+        openObserver: {
+            next: ( event ) => {
+                console.log( event );
+            }
+        },
+        closeObserver: {
+            next( closeEvent ) {
+                console.log( closeEvent );
+            }
+        }
+    } );
     private peers: Map<string, Instance> = new Map<string, Instance>();
     private configuration: RTCConfiguration = {
         "iceServers": [
@@ -50,18 +63,20 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
     }
 
     public joinVideo(): void {
-        document.cookie = `auth_token=${ this.authenticationService.currentUser?.token }`;
+        document.cookie = `authToken=${ this.authenticationService.currentUser?.token }`;
+        document.cookie = "roomId=ca157488-85b7-4d90-b8ff-055d15759338";
+
         this.socketConnection.subscribe( {
             next: msg => this.handleIncomingMessage( msg ),
             error: err => console.log( err )
         } );
-        document.cookie = "";
     }
 
     public ngOnDestroy(): void {
         this.ngUnsubscribe.next();
         this.ngUnsubscribe.complete();
         this.localStream.getVideoTracks().forEach( track => track.stop() );
+        this.socketConnection.complete();
     }
 
     private handleIncomingMessage( msg: any ): void {

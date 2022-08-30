@@ -65,7 +65,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             return null;
         }
 
-        Cookie authCookie = stream( request.getCookies() ).filter( c -> c.getName().equals( "auth_token" ) )
+        Cookie authCookie = stream( request.getCookies() ).filter( c -> c.getName().equals( "authToken" ) )
                                                           .findFirst()
                                                           .orElse( null );
         if( nonNull( authCookie ) ) {
