@@ -1,6 +1,6 @@
 package com.krasen.web.services.interfaces;
 
-import java.util.List;
+import java.util.*;
 
 import com.krasen.web.dtos.RoomDTO;
 import com.krasen.web.models.User;
@@ -12,5 +12,7 @@ public interface RoomService {
     List<RoomDTO> getUserRooms( User currentUser );
 
     List<RoomDTO> getAllRooms();
+
+    RoomDTO joinRoom( UUID roomId, User currentUser );
 
 }

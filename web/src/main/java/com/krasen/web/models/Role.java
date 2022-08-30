@@ -17,7 +17,6 @@ public class Role {
     private Integer id;
 
     @Enumerated( EnumType.STRING )
-    @Column( length = 20 )
     private RoleType name;
 
 }

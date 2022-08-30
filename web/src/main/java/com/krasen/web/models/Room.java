@@ -32,4 +32,10 @@ public class Room {
     @CreatedDate
     private Date createdOn;
 
+    @ManyToMany( fetch = FetchType.EAGER )
+    @JoinTable( name = "room_users",
+                joinColumns = @JoinColumn( name = "room_id" ),
+                inverseJoinColumns = @JoinColumn( name = "user_id" ) )
+    private Set<User> users = new HashSet<>();
+
 }

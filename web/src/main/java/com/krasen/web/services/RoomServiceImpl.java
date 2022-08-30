@@ -48,4 +48,13 @@ public class RoomServiceImpl implements RoomService {
         return roomRepository.getAllByOrderByCreatedOnDesc().stream().map( RoomDTO::new ).collect( Collectors.toList() );
     }
 
+    @Override
+    public RoomDTO joinRoom( UUID roomId, User currentUser ) {
+        Room room = roomRepository.findById( roomId ).orElseThrow( () -> new GenericException( "Room not found" ) );
+
+        room.getUsers().add( currentUser );
+
+        return new RoomDTO( roomRepository.save( room ) );
+    }
+
 }

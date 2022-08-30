@@ -1,6 +1,6 @@
 package com.krasen.web.controllers;
 
-import java.util.List;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,10 +29,16 @@ public class RoomController {
         return ResponseEntity.ok( roomService.create( roomName, currentUser ) );
     }
 
+    @PostMapping( "/join" )
+    @PreAuthorize( "hasRole('USER')" )
+    public ResponseEntity<RoomDTO> join( @RequestParam final UUID roomId, @CurrentUser final User currentUser ) {
+        return ResponseEntity.ok( roomService.joinRoom( roomId, currentUser ) );
+    }
+
     @GetMapping
     @PreAuthorize( "hasRole('USER')" )
     public ResponseEntity<List<RoomDTO>> getAllRooms() {
-        return ResponseEntity.ok( roomService.getAllRooms(  ) );
+        return ResponseEntity.ok( roomService.getAllRooms() );
     }
 
     @GetMapping( "/my" )
