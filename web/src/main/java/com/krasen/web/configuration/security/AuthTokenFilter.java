@@ -1,6 +1,7 @@
 package com.krasen.web.configuration.security;
 
 import java.io.IOException;
+import java.util.Map;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -18,7 +19,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import com.krasen.web.utils.JwtUtils;
 
 import static java.util.Arrays.stream;
-import static java.util.Objects.*;
+import static java.util.Objects.nonNull;
 
 @Component
 public class AuthTokenFilter extends OncePerRequestFilter {
@@ -61,15 +62,20 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             return headerAuth.substring( 7 );
         }
 
-        if( isNull( request.getCookies() ) ) {
-            return null;
+        Map<String, String[]> parameters = request.getParameterMap();
+        if( parameters.containsKey( "authToken" ) ) {
+            String[] authTokenParamList = parameters.get( "authToken" );
+            return authTokenParamList[0];
         }
 
-        Cookie authCookie = stream( request.getCookies() ).filter( c -> c.getName().equals( "authToken" ) )
-                                                          .findFirst()
-                                                          .orElse( null );
-        if( nonNull( authCookie ) ) {
-            return authCookie.getValue();
+        if( nonNull( request.getCookies() ) ) {
+
+            Cookie authCookie = stream( request.getCookies() ).filter( c -> c.getName().equals( "authToken" ) )
+                                                              .findFirst()
+                                                              .orElse( null );
+            if( nonNull( authCookie ) ) {
+                return authCookie.getValue();
+            }
         }
 
         return null;

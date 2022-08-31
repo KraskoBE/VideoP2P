@@ -2,6 +2,7 @@ import { Component, Input, ViewChild, AfterViewInit, OnChanges, SimpleChanges } 
 import { RoomDto } from "src/app/models/roomDto";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
+import { Router } from "@angular/router";
 
 @Component( {
     selector: "room-list",
@@ -19,6 +20,9 @@ export class RoomListComponent implements OnChanges, AfterViewInit {
     dataSource: MatTableDataSource<RoomDto> = new MatTableDataSource<RoomDto>();
     displayedColumns: string[] = [ "name", "id", "createdBy", "createdOn", "actions" ];
 
+    constructor( private router: Router ) {
+    }
+
     public ngOnChanges( changes: SimpleChanges ): void {
         if( changes[ "rooms" ] && changes[ "rooms" ].currentValue ) {
             this.dataSource.data = changes[ "rooms" ].currentValue;
@@ -29,4 +33,7 @@ export class RoomListComponent implements OnChanges, AfterViewInit {
         this.dataSource.paginator = this.paginator;
     }
 
+    public joinRoom( room: RoomDto ): void {
+        this.router.navigate( [ "room/" ], { queryParams: { roomId: room.id } } );
+    }
 }

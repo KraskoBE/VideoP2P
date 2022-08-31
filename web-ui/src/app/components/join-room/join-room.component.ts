@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { NotificationService } from "src/app/services/notification.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component( {
     selector: "join-room",
@@ -12,8 +12,14 @@ export class JoinRoomComponent {
     roomJoinForm: FormGroup;
     roomId: string;
 
-    constructor( private formBuilder: FormBuilder, private notificationService: NotificationService ) {
+    constructor( private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router ) {
         this.roomJoinForm = this.formBuilder.group( { roomId: [ "", [ Validators.required, Validators.minLength( 36 ) ] ] } );
+        this.route.queryParams.subscribe( params => {
+            if( params[ "roomId" ] ) {
+                this.roomJoinForm.get( "roomId" )?.setValue( params[ "roomId" ] );
+                this.joinRoom();
+            }
+        } );
     }
 
     public joinRoom(): void {
@@ -21,6 +27,13 @@ export class JoinRoomComponent {
             return;
         }
         this.roomId = this.roomJoinForm.get( "roomId" )?.value;
+        this.router.navigate(
+            [],
+            {
+                relativeTo: this.route,
+                queryParams: { roomId: this.roomId },
+                queryParamsHandling: "merge"
+            } );
     }
 
     public leaveRoom(): void {

@@ -17,19 +17,7 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
     public localStream: MediaStream;
     public videos: { id: string, stream: MediaStream }[] = [];
     private ngUnsubscribe: Subject<void> = new Subject<void>();
-    private socketConnection: WebSocketSubject<any> = webSocket( {
-        url: "ws://localhost:8080/socket",
-        openObserver: {
-            next: ( event ) => {
-                console.log( event );
-            }
-        },
-        closeObserver: {
-            next( closeEvent ) {
-                console.log( closeEvent );
-            }
-        }
-    } );
+    private socketConnection: WebSocketSubject<any>;
     private peers: Map<string, Instance> = new Map<string, Instance>();
     private configuration: RTCConfiguration = {
         "iceServers": [
@@ -65,8 +53,19 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
     }
 
     public joinVideo(): void {
-        document.cookie = `authToken=${ this.authenticationService.currentUser?.token }`;
-        document.cookie = `roomId=${ this.roomId }`;
+        this.socketConnection = webSocket( {
+            url: `ws://localhost:8080/socket?authToken=${ this.authenticationService.currentUser?.token }&roomId=${ this.roomId }`,
+            openObserver: {
+                next: ( event ) => {
+                    console.log( event );
+                }
+            },
+            closeObserver: {
+                next( closeEvent ) {
+                    console.log( closeEvent );
+                }
+            }
+        } );
 
         this.socketConnection.subscribe( {
             next: msg => this.handleIncomingMessage( msg ),

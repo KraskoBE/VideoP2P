@@ -1,28 +1,28 @@
 <table *ngIf="dataSource" class="w-100" mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let element"><b>{{element.name}}</b></td>
+        <td mat-cell *matCellDef="let room"><b>{{room.name}}</b></td>
     </ng-container>
 
     <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>Room ID</th>
-        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        <td mat-cell *matCellDef="let room">{{room.id}}</td>
     </ng-container>
 
     <ng-container matColumnDef="createdBy">
         <th mat-header-cell *matHeaderCellDef>Created By</th>
-        <td mat-cell *matCellDef="let element"><b>{{ element.createdBy }}</b></td>
+        <td mat-cell *matCellDef="let room"><b>{{ room.createdBy }}</b></td>
     </ng-container>
 
     <ng-container matColumnDef="createdOn">
         <th mat-header-cell *matHeaderCellDef>Created On</th>
-        <td mat-cell *matCellDef="let element">{{ element.createdOn | date: "medium"}}</td>
+        <td mat-cell *matCellDef="let room">{{ room.createdOn | date: "medium"}}</td>
     </ng-container>
 
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
-        <td mat-cell *matCellDef="let element">
-            <button mat-button mat-flat-button color="primary">Join Room</button>
+        <td mat-cell *matCellDef="let room">
+            <button mat-button mat-flat-button color="primary" (click)="joinRoom(room)">Join Room</button>
         </td>
     </ng-container>
 

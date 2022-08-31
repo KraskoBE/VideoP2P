@@ -9,12 +9,12 @@
                     <mat-error *ngIf="roomJoinForm.get('roomId')?.invalid">Invalid Room ID</mat-error>
                 </mat-form-field>
 
-                <button mat-raised-button color="primary" type="submit">Join</button>
+                <button *ngIf="!roomId" mat-raised-button color="primary" type="submit">Join</button>
+                <button *ngIf="roomId" mat-raised-button color="primary" (click)="leaveRoom()">Leave</button>
+
             </form>
 
             <mat-divider class="mb-5"></mat-divider>
-
-            <button *ngIf="roomId" mat-raised-button color="primary" (click)="leaveRoom()">Leave</button>
 
             <camera-view *ngIf="roomId" [roomId]="roomId"></camera-view>
         </mat-card>

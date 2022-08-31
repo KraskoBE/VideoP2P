@@ -49,7 +49,10 @@ public class MessageHandlerImpl implements MessageHandler {
         if( !participants.containsKey( socketId ) ) {
             return;
         }
-        participants.get( socketId ).sendMessage( buildTextMessage( new TextSocketMessage( "signal", paramMap ) ) );
+
+        synchronized( participants.get( socketId ) ) {
+            participants.get( socketId ).sendMessage( buildTextMessage( new TextSocketMessage( "signal", paramMap ) ) );
+        }
     }
 
     private void handleInitSendMessage( WebSocketSession session, TextMessage message ) throws IOException {
@@ -62,7 +65,9 @@ public class MessageHandlerImpl implements MessageHandler {
         if( !participants.containsKey( initSocketId ) ) {
             return;
         }
-        participants.get( initSocketId ).sendMessage( buildTextMessage( new TextSocketMessage( "initSend", session.getId() ) ) );
+        synchronized( participants.get( initSocketId ) ) {
+            participants.get( initSocketId ).sendMessage( buildTextMessage( new TextSocketMessage( "initSend", session.getId() ) ) );
+        }
     }
 
 }
