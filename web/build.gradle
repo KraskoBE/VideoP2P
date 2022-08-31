@@ -12,8 +12,6 @@ java {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
-sourceCompatibility = '11'
-
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
