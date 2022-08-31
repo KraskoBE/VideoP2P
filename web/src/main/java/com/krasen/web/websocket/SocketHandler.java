@@ -23,7 +23,7 @@ public class SocketHandler extends TextWebSocketHandler {
     }
 
     @Override
-    public void handleTextMessage( @NonNull WebSocketSession session, @NonNull TextMessage message ) {
+    public void handleTextMessage( @NonNull WebSocketSession session, @NonNull TextMessage message ) throws Exception{
         messageHandler.handleTextMessage( session, message );
     }
 

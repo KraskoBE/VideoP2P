@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
             .pipe( first() )
             .subscribe( {
                 next: ( user: User ) => {
-                    this.snackBar.open( `${ user.firstName } Successfully logged in!` );
+                    this.snackBar.open( `${ user.firstName } successfully logged in!` );
                     this.router.navigate( [ this.returnUrl ] );
                 },
                 error: () => this.snackBar.open( "Wrong username or password!" )

@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
             .pipe( first() )
             .subscribe( {
                 next: ( user: SignUpResponse ) => {
-                    this.snackBar.open( `${ user.username } Successfully registered! You can now log in!` );
+                    this.snackBar.open( `${ user.username } successfully registered! You can now log in!` );
                     this.router.navigate( [ "/login" ] );
                 },
                 error: err => this.snackBar.open( err.error )

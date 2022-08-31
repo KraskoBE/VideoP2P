@@ -29,12 +29,6 @@ public class RoomController {
         return ResponseEntity.ok( roomService.create( roomName, currentUser ) );
     }
 
-    @PostMapping( "/join" )
-    @PreAuthorize( "hasRole('USER')" )
-    public ResponseEntity<RoomDTO> join( @RequestParam final UUID roomId, @CurrentUser final User currentUser ) {
-        return ResponseEntity.ok( roomService.joinRoom( roomId, currentUser ) );
-    }
-
     @GetMapping
     @PreAuthorize( "hasRole('USER')" )
     public ResponseEntity<List<RoomDTO>> getAllRooms() {
