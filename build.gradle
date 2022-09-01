@@ -12,6 +12,10 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation(project(':web'))
+task stage {
+    dependsOn("web:build")
 }
+
+//dependencies {
+//    implementation(project(':web'))
+//}
