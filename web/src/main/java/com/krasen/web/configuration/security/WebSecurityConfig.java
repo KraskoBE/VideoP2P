@@ -39,11 +39,9 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain( HttpSecurity http ) throws Exception {
-        http.cors()
-            .and()
-            .csrf()
-            .disable()
-            .exceptionHandling()
+        http.cors().and().csrf().disable();
+
+        http.exceptionHandling()
             .authenticationEntryPoint( unauthorizedHandler )
             .and()
             .sessionManagement()
@@ -52,8 +50,12 @@ public class WebSecurityConfig {
             .authorizeRequests()
             .antMatchers( "/api/auth/**" )
             .permitAll()
+            .antMatchers( "/api/**" )
+            .authenticated()
+            .antMatchers( "/*", "/assests/**" )
+            .permitAll()
             .anyRequest()
-            .authenticated();
+            .denyAll();
 
         return http.addFilterBefore( authTokenFilter, UsernamePasswordAuthenticationFilter.class ).build();
     }
