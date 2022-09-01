@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar web-0.0.1-SNAPSHOT.jar -Dserver $JAR_OPTS -Dserver.port $PORT
+web: java $JAVA_OPTS -jar target/web-0.0.1-SNAPSHOT.jar -Dserver $JAR_OPTS -Dserver.port $PORT
