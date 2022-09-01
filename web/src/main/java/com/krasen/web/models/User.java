@@ -51,27 +51,27 @@ public class User implements UserDetails {
     @NotNull
     @Column
     @JsonIgnore
-    private boolean accountNonExpired = false;
+    private boolean accountNonExpired;
 
     @NotNull
     @Column
     @JsonIgnore
-    private boolean accountNonLocked = false;
+    private boolean accountNonLocked;
 
     @NotNull
     @Column
     @JsonIgnore
-    private boolean credentialsNonExpired = false;
+    private boolean credentialsNonExpired;
 
     @NotNull
     @Column
-    private boolean enabled = true;
+    private boolean enabled;
 
     @ManyToMany( fetch = FetchType.EAGER )
     @JoinTable( name = "user_roles",
                 joinColumns = @JoinColumn( name = "user_id" ),
                 inverseJoinColumns = @JoinColumn( name = "role_id" ) )
-    private Set<Role> roles = new HashSet<>();
+    private Set<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

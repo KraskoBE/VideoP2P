@@ -36,6 +36,6 @@ public class Room {
     @JoinTable( name = "room_users",
                 joinColumns = @JoinColumn( name = "room_id" ),
                 inverseJoinColumns = @JoinColumn( name = "user_id" ) )
-    private Set<User> users = new HashSet<>();
+    private Set<User> users;
 
 }
