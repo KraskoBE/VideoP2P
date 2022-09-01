@@ -100,6 +100,33 @@
       <option name="EXPR_CASE_COLLAPSE" value="false" />
       <option name="PRIMARY_KEY_NAME_TEMPLATE" value="{table}_{columns}_pk" />
     </H2CodeStyleSettings>
+    <H2CodeStyleSettings version="6">
+      <option name="TYPE_CASE" value="1" />
+      <option name="ALIAS_CASE" value="4" />
+      <option name="SUBQUERY_PAR_SPACE_INSIDE" value="true" />
+      <option name="SET_EL_WRAP" value="0" />
+      <option name="SET_EL_COMMA" value="0" />
+      <option name="WITH_EL_WRAP" value="0" />
+      <option name="WITH_EL_COMMA" value="0" />
+      <option name="SELECT_EL_WRAP" value="2" />
+      <option name="SELECT_ALIGN_AS" value="false" />
+      <option name="FROM_EL_WRAP" value="0" />
+      <option name="FROM_INDENT_JOIN" value="false" />
+      <option name="WHERE_EL_WRAP" value="2" />
+      <option name="ORDER_EL_COMMA" value="1" />
+      <option name="TABLE_OPENING" value="1" />
+      <option name="TABLE_CONTENT" value="2" />
+      <option name="TABLE_CLOSING" value="3" />
+      <option name="POST_OPT_WRAP_1" value="true" />
+      <option name="IMP_DECLARE_EL_WRAP" value="1" />
+      <option name="IMP_IF_THEN_WRAP_THEN" value="true" />
+      <option name="CORTEGE_SPACE_BEFORE_L_PAREN" value="false" />
+      <option name="CORTEGE_CLOSING" value="1" />
+      <option name="EXPR_CASE_THEN_ALIGN" value="true" />
+      <option name="EXPR_CASE_END" value="1" />
+      <option name="EXPR_CASE_COLLAPSE" value="false" />
+      <option name="PRIMARY_KEY_NAME_TEMPLATE" value="{table}_{columns}_pk" />
+    </H2CodeStyleSettings>
     <HSQLCodeStyleSettings version="6">
       <option name="TYPE_CASE" value="1" />
       <option name="ALIAS_CASE" value="4" />

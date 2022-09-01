@@ -3,6 +3,11 @@ plugins {
     id "com.github.node-gradle.node" version "3.4.0"
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
 node {
     version = '16.15.0'
     npmVersion = '8.13.2'
