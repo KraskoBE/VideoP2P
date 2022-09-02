@@ -2,6 +2,8 @@ package com.krasen.web.controllers;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,6 +17,8 @@ import com.krasen.web.services.interfaces.AuthService;
 @RequestMapping( "/api/auth" )
 @CrossOrigin( origins = "*" )
 public class AuthController {
+
+    public static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
     private final AuthService authService;
 
@@ -30,6 +34,7 @@ public class AuthController {
 
     @PostMapping( "/login" )
     public ResponseEntity<LoginResponse> loginUser( @Valid @RequestBody final LoginRequest loginRequest ) {
+        logger.info(loginRequest.toString());
         return ResponseEntity.ok( authService.login( loginRequest ) );
     }
 

@@ -2,6 +2,7 @@ package com.krasen.web.services;
 
 import java.util.HashSet;
 
+import com.krasen.web.controllers.AuthController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
@@ -77,10 +78,18 @@ public class AuthServiceImpl implements AuthService {
         Authentication authentication = authenticationManager.authenticate( new UsernamePasswordAuthenticationToken(
             loginRequest.getUsername(),
             loginRequest.getPassword() ) );
+        AuthController.logger.info("1");
+
         SecurityContextHolder.getContext().setAuthentication( authentication );
+        AuthController.logger.info("2");
+
         String token = jwtUtils.generateToken( authentication );
 
+        AuthController.logger.info("3");
+
         User userDetails = ( User ) authentication.getPrincipal();
+        AuthController.logger.info("4");
+
         return LoginResponse.builder()
                             .id( userDetails.getId() )
                             .token( token )
