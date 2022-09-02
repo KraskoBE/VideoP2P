@@ -1,6 +1,7 @@
 package com.krasen.web.services;
 
 import java.util.HashSet;
+import java.util.List;
 
 import com.krasen.web.controllers.AuthController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,6 +76,9 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public LoginResponse login( LoginRequest loginRequest ) {
+        List<User> all = userRepository.findAll();
+        AuthController.logger.info(all.toString());
+
         Authentication authentication = authenticationManager.authenticate( new UsernamePasswordAuthenticationToken(
             loginRequest.getUsername(),
             loginRequest.getPassword() ) );
