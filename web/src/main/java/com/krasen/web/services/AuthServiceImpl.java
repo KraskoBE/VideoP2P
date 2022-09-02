@@ -1,22 +1,26 @@
 package com.krasen.web.services;
 
-import java.util.HashSet;
-import java.util.List;
-
-import com.krasen.web.controllers.AuthController;
+import com.krasen.web.dtos.LoginRequest;
+import com.krasen.web.dtos.LoginResponse;
+import com.krasen.web.dtos.SignUpRequest;
+import com.krasen.web.dtos.SignUpResponse;
+import com.krasen.web.exceptions.GenericException;
+import com.krasen.web.models.Role;
+import com.krasen.web.models.RoleType;
+import com.krasen.web.models.User;
+import com.krasen.web.repositories.RoleRepository;
+import com.krasen.web.repositories.UserRepository;
+import com.krasen.web.services.interfaces.AuthService;
+import com.krasen.web.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.*;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.krasen.web.dtos.*;
-import com.krasen.web.exceptions.GenericException;
-import com.krasen.web.models.*;
-import com.krasen.web.repositories.*;
-import com.krasen.web.services.interfaces.AuthService;
-import com.krasen.web.utils.JwtUtils;
+import java.util.HashSet;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -42,16 +46,17 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public SignUpResponse register( SignUpRequest signUpRequest ) {
-        if( userRepository.existsByUsername( signUpRequest.getUsername() ) ) {
+        if ( userRepository.existsByUsername( signUpRequest.getUsername() ) ) {
             throw new GenericException( "Username already exists" );
         }
-        if( userRepository.existsByEmail( signUpRequest.getEmail() ) ) {
+        if ( userRepository.existsByEmail( signUpRequest.getEmail() ) ) {
             throw new GenericException( "Email already in use" );
         }
 
         HashSet<Role> roles = new HashSet<>();
         roles.add( roleRepository.findByName( RoleType.ROLE_USER ).orElse( null ) );
         User newUser = User.builder()
+                           .id( -1L )
                            .username( signUpRequest.getUsername() )
                            .firstName( signUpRequest.getFirstName() )
                            .lastName( signUpRequest.getLastName() )
@@ -76,23 +81,12 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public LoginResponse login( LoginRequest loginRequest ) {
-        List<User> all = userRepository.findAll();
-        AuthController.logger.info(all.toString());
-
-        Authentication authentication = authenticationManager.authenticate( new UsernamePasswordAuthenticationToken(
-            loginRequest.getUsername(),
-            loginRequest.getPassword() ) );
-        AuthController.logger.info("1");
-
+        Authentication authentication = authenticationManager.authenticate( new UsernamePasswordAuthenticationToken( loginRequest.getUsername(),
+                                                                                                                     loginRequest.getPassword() ) );
         SecurityContextHolder.getContext().setAuthentication( authentication );
-        AuthController.logger.info("2");
 
         String token = jwtUtils.generateToken( authentication );
-
-        AuthController.logger.info("3");
-
-        User userDetails = ( User ) authentication.getPrincipal();
-        AuthController.logger.info("4");
+        User userDetails = (User) authentication.getPrincipal();
 
         return LoginResponse.builder()
                             .id( userDetails.getId() )
