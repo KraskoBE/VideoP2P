@@ -21,15 +21,12 @@ import static java.util.Objects.nonNull;
 
 public class SocketHandshakeInterceptor implements HandshakeInterceptor {
 
-    public static final Logger logger = LoggerFactory.getLogger( SocketHandshakeInterceptor.class );
 
     @Override
     public boolean beforeHandshake( @NonNull ServerHttpRequest request,
                                     @NonNull ServerHttpResponse response,
                                     @NonNull WebSocketHandler wsHandler,
                                     @NonNull Map<String, Object> attributes ) throws Exception {
-        logger.info( request.toString() );
-
         HttpServletRequest servletRequest = ( (ServletServerHttpRequest) request ).getServletRequest();
 
         String roomIdString = null;

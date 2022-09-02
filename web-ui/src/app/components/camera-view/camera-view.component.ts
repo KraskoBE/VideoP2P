@@ -53,8 +53,17 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
     }
 
     public joinVideo(): void {
+        let loc = window.location, new_uri;
+        if (loc.protocol === "https:") {
+            new_uri = "wss:";
+        } else {
+            new_uri = "ws:";
+        }
+        new_uri += loc.host;
+        new_uri += loc.pathname;
+
         this.socketConnection = webSocket( {
-            url: `wss://videop2p-diplomna.herokuapp.com/socket?authToken=${ this.authenticationService.currentUser?.token }&roomId=${ this.roomId }`,
+            url: `${new_uri}socket?authToken=${ this.authenticationService.currentUser?.token }&roomId=${ this.roomId }`,
             openObserver: {
                 next: ( event ) => {
                     console.log( event );

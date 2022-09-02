@@ -1,13 +1,16 @@
 package com.krasen.web.models;
 
-import java.util.*;
-import javax.persistence.*;
-
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.CreatedDate;
 
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.UUID;
 
 @Data
 @Entity
@@ -31,11 +34,5 @@ public class Room {
 
     @CreatedDate
     private Date createdOn;
-
-    @ManyToMany( fetch = FetchType.EAGER )
-    @JoinTable( name = "room_users",
-                joinColumns = @JoinColumn( name = "room_id" ),
-                inverseJoinColumns = @JoinColumn( name = "user_id" ) )
-    private Set<User> users;
 
 }
