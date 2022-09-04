@@ -19,3 +19,9 @@ dependencies {
 task stage {
     dependsOn("web:build")
 }
+
+task runPytonApi(type:Exec) {
+    workingDir '/web-py'
+
+    commandLine 'py', 'api.py'
+}
