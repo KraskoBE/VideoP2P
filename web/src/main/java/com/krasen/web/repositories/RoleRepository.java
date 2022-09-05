@@ -1,11 +1,11 @@
 package com.krasen.web.repositories;
 
-import java.util.Optional;
-
+import com.krasen.web.enums.RoleType;
+import com.krasen.web.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.krasen.web.models.*;
+import java.util.Optional;
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {

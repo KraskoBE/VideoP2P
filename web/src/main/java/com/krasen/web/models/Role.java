@@ -1,8 +1,12 @@
 package com.krasen.web.models;
 
-import javax.persistence.*;
+import com.krasen.web.enums.RoleType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import lombok.*;
+import javax.persistence.*;
 
 @Data
 @Entity

@@ -1,5 +1,25 @@
 <div class="row m-0 pt-3">
-    <div class="col">
-        <mat-card class="mb-2">My Profile works</mat-card>
+    <div class="col-6">
+        <mat-card class="mb-2">
+            <mat-card-header>
+                <h3>New Recognition Image</h3>
+            </mat-card-header>
+            <div class="row">
+                <video #video [autoplay]="true" [muted]="true" [srcObject]="localStream" width="960" height="540"></video>
+                <canvas #canvas style="display:none" width="1920px" height="1080px"></canvas>
+            </div>
+            <div class="row m-3">
+                <button mat-raised-button color="primary" (click)="captureImage()">Capture Image</button>
+            </div>
+        </mat-card>
+    </div>
+
+    <div class="col-6">
+        <mat-card class="mb-2">
+            <mat-card-header>
+                <h3>Current Recognition Image</h3>
+            </mat-card-header>
+            <img [src]="currentUserPicture" width="960" height="540"/>
+        </mat-card>
     </div>
 </div>

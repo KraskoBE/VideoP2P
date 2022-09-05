@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, OnDestroy, Input } from "@angular/core";
-import { from, Observable, Subject, takeUntil } from "rxjs";
-import { webSocket, WebSocketSubject } from "rxjs/webSocket";
+import {AfterViewInit, Component, ElementRef, Input, OnDestroy, ViewChild} from "@angular/core";
+import {from, Observable, Subject, takeUntil} from "rxjs";
+import {webSocket, WebSocketSubject} from "rxjs/webSocket";
 import * as SimplePeer from "simple-peer";
-import { Instance } from "simple-peer";
-import { AuthenticationService } from "../../services/authentication.service";
+import {Instance} from "simple-peer";
+import {AuthenticationService} from "../../services/authentication.service";
+import {FaceRecognitionService} from "../../services/face-recognition.service";
 
 @Component( {
     selector: "camera-view",
@@ -11,6 +12,9 @@ import { AuthenticationService } from "../../services/authentication.service";
     styleUrls: [ "./camera-view.component.scss" ]
 } )
 export class CameraViewComponent implements AfterViewInit, OnDestroy {
+
+    @ViewChild( "video" ) videoRef!: ElementRef;
+    @ViewChild( "canvas" ) canvasRef!: ElementRef;
 
     @Input() roomId: string;
 
@@ -42,7 +46,15 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
         ]
     };
 
-    constructor( private authenticationService: AuthenticationService ) {
+    constructor( private authenticationService: AuthenticationService, private faceRecognitionService: FaceRecognitionService ) {
+    }
+
+    get video(): HTMLVideoElement {
+        return this.videoRef.nativeElement;
+    }
+
+    get canvas(): HTMLCanvasElement {
+        return this.canvasRef.nativeElement;
     }
 
     public ngAfterViewInit(): void {
@@ -54,7 +66,7 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
 
     public joinVideo(): void {
         let loc = window.location, new_uri;
-        if (loc.protocol === "https:") {
+        if ( loc.protocol === "https:" ) {
             new_uri = "wss:";
         } else {
             new_uri = "ws:";
@@ -63,7 +75,7 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
         new_uri += loc.pathname;
 
         this.socketConnection = webSocket( {
-            url: `${new_uri}socket?authToken=${ this.authenticationService.currentUser?.token }&roomId=${ this.roomId }`,
+            url: `${new_uri}socket?authToken=${this.authenticationService.currentUser?.token}&roomId=${this.roomId}`,
             openObserver: {
                 next: ( event ) => {
                     console.log( event );
@@ -86,13 +98,18 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
         this.ngUnsubscribe.next();
         this.ngUnsubscribe.complete();
         this.localStream.getVideoTracks().forEach( track => track.stop() );
-        this.socketConnection.complete();
-        document.cookie = "authToken=";
-        document.cookie = "roomId=";
+        this.socketConnection?.complete();
+    }
+
+    verifyImage(): void {
+        this.canvas.getContext( "2d" )?.drawImage( this.video, 0, 0, 1920, 1080 );
+
+        let base64Image = this.canvas.toDataURL( "image/jpeg" );
+        this.faceRecognitionService.verify( base64Image ).subscribe( result => console.log( result ) );
     }
 
     private handleIncomingMessage( msg: any ): void {
-        switch( msg.key ) {
+        switch ( msg.key ) {
             case "initReceive":
                 this.addPeer( msg.value, false );
                 this.socketConnection.next( {
@@ -142,7 +159,7 @@ export class CameraViewComponent implements AfterViewInit, OnDestroy {
     private requestLocalUserMedia(): Observable<MediaStream> {
         return from( navigator.mediaDevices.getUserMedia( {
             audio: true,
-            video: { width: 960, height: 540 }
+            video: { width: 1920, height: 1080 }
         } ) ).pipe( takeUntil( this.ngUnsubscribe ) );
     }
 }

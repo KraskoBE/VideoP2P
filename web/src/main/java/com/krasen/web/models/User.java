@@ -1,17 +1,20 @@
 package com.krasen.web.models;
 
-import java.util.*;
-import java.util.stream.Collectors;
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.istack.NotNull;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.Collection;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import static java.util.Objects.isNull;
 
@@ -24,7 +27,7 @@ import static java.util.Objects.isNull;
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 
     @NotBlank
@@ -67,20 +70,19 @@ public class User implements UserDetails {
     @Column
     private boolean enabled;
 
+    @Column(columnDefinition = "TEXT")
+    private String pictureString;
+
     @ManyToMany( fetch = FetchType.EAGER )
-    @JoinTable( name = "user_roles",
-                joinColumns = @JoinColumn( name = "user_id" ),
-                inverseJoinColumns = @JoinColumn( name = "role_id" ) )
+    @JoinTable( name = "user_roles", joinColumns = @JoinColumn( name = "user_id" ), inverseJoinColumns = @JoinColumn( name = "role_id" ) )
     private Set<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if( isNull( getRoles() ) ) {
+        if ( isNull( getRoles() ) ) {
             return null;
         }
-        return getRoles().stream()
-                         .map( role -> new SimpleGrantedAuthority( role.getName().name() ) )
-                         .collect( Collectors.toList() );
+        return getRoles().stream().map( role -> new SimpleGrantedAuthority( role.getName().name() ) ).collect( Collectors.toList() );
     }
 
 }

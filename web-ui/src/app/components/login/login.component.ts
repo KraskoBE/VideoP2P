@@ -6,6 +6,7 @@ import { AuthenticationService } from "../../services/authentication.service";
 import { User } from "../../models/user";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { LoginRequest } from "../../models/loginRequest";
+import {LoginResponse} from "../../models/loginResponse";
 
 @Component( {
     selector: "login",
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login( loginRequest )
             .pipe( first() )
             .subscribe( {
-                next: ( user: User ) => {
+                next: ( user: LoginResponse ) => {
                     this.snackBar.open( `${ user.firstName } successfully logged in!` );
                     this.router.navigate( [ this.returnUrl ] );
                 },

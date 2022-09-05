@@ -1,7 +1,7 @@
 package com.krasen.web.configuration;
 
+import com.krasen.web.enums.RoleType;
 import com.krasen.web.models.Role;
-import com.krasen.web.models.RoleType;
 import com.krasen.web.repositories.RoleRepository;
 import lombok.NonNull;
 import org.slf4j.Logger;

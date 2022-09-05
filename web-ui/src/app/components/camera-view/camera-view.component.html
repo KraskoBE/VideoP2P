@@ -1,6 +1,6 @@
 <video #video [autoplay]="true" [muted]="true" [srcObject]="localStream" width="960" height="540"></video>
-
-{{ roomId }}
+<canvas #canvas style="display:none" width="1920px" height="1080px"></canvas>
+<button mat-raised-button color="primary" (click)="verifyImage()">Verify</button>
 
 <button mat-raised-button color="primary" (click)="joinVideo()">JOIN VIDEO</button>
 

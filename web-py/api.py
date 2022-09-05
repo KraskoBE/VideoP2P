@@ -7,7 +7,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 #------------------------------
 
 from flask import Flask, jsonify, request, make_response
-from flask_cors import CORS
 
 import argparse
 import uuid
@@ -33,7 +32,6 @@ from deepface import DeepFace
 #------------------------------
 
 app = Flask(__name__)
-CORS(app)
 
 #------------------------------
 
@@ -45,7 +43,7 @@ if tf_version == 1:
 
 @app.route('/')
 def index():
-    return 'Pyhon API Works!'
+    return '<h1>Hello, world!</h1>'
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
@@ -190,7 +188,6 @@ def verifyWrapper(req, trx_id = 0):
                                    , detector_backend = detector_backend
                                    , enforce_detection= False
                                    )
-        print(resp_obj)
 
         if model_name == "Ensemble": #issue 198.
             for key in resp_obj: #issue 198.
