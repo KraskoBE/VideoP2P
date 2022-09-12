@@ -6,6 +6,29 @@ import { RoomDto } from "src/app/models/roomDto";
 @Injectable( { providedIn: "root" } )
 export class RoomService {
 
+    public static configuration: RTCConfiguration = {
+        "iceServers": [
+            {
+                urls: "stun:openrelay.metered.ca:80"
+            },
+            {
+                urls: "turn:openrelay.metered.ca:80",
+                username: "openrelayproject",
+                credential: "openrelayproject"
+            },
+            {
+                urls: "turn:openrelay.metered.ca:443",
+                username: "openrelayproject",
+                credential: "openrelayproject"
+            },
+            {
+                urls: "turn:openrelay.metered.ca:443?transport=tcp",
+                username: "openrelayproject",
+                credential: "openrelayproject"
+            }
+        ]
+    };
+
     constructor( private http: HttpClient ) {
     }
 
@@ -18,8 +41,12 @@ export class RoomService {
     public getAllRooms(): Observable<RoomDto[]> {
         return this.http.get<RoomDto[]>( "/api/room" );
     }
+
     public getUserRooms(): Observable<RoomDto[]> {
         return this.http.get<RoomDto[]>( "/api/room/my" );
     }
 
+    public getRoomById( roomId: string ): Observable<RoomDto> {
+        return this.http.get<RoomDto>( `/api/room/${ encodeURIComponent( roomId ) }` );
+    }
 }

@@ -1,6 +1,7 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from "@angular/core";
-import {from, Observable, Subject, takeUntil} from "rxjs";
-import {UserService} from "../../services/user.service";
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { Subject } from "rxjs";
+import { UserService } from "../../services/user.service";
+import { CameraService } from "../../services/camera.service";
 
 @Component( {
     selector: "user-profile",
@@ -17,7 +18,7 @@ export class UserProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     private ngUnsubscribe: Subject<void> = new Subject<void>();
 
 
-    constructor( private userService: UserService ) {
+    constructor( private userService: UserService, private cameraService: CameraService ) {
     }
 
     get video(): HTMLVideoElement {
@@ -29,11 +30,11 @@ export class UserProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.userService.getCurrentUser().subscribe( user => this.currentUserPicture = user.pictureString );
+        this.userService.getCurrentUser().subscribe( user => this.currentUserPicture = user.pictureString || this.currentUserPicture );
     }
 
     public ngAfterViewInit(): void {
-        this.requestLocalUserMedia().subscribe( {
+        this.cameraService.requestLocalUserMedia().subscribe( {
             next: ( mediaStream: MediaStream ) => this.localStream = mediaStream,
             error: ( error ) => console.log( error )
         } );
@@ -42,7 +43,7 @@ export class UserProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     public ngOnDestroy(): void {
         this.ngUnsubscribe.next();
         this.ngUnsubscribe.complete();
-        this.localStream.getVideoTracks().forEach( track => track.stop() );
+        this.localStream.getTracks().forEach( track => track.stop() );
     }
 
     public captureImage(): void {
@@ -50,12 +51,5 @@ export class UserProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
         let base64Image = this.canvas.toDataURL( "image/jpeg" );
         this.userService.updatePicture( base64Image ).subscribe( user => this.currentUserPicture = user.pictureString );
-    }
-
-    private requestLocalUserMedia(): Observable<MediaStream> {
-        return from( navigator.mediaDevices.getUserMedia( {
-            audio: true,
-            video: { width: 1920, height: 1080 }
-        } ) ).pipe( takeUntil( this.ngUnsubscribe ) );
     }
 }

@@ -10,6 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.util.UUID;
+
 @RestController
 @RequestMapping( "/api/face" )
 @CrossOrigin( origins = "*" )
@@ -29,10 +32,12 @@ public class FaceRecognitionController {
         return ResponseEntity.ok( faceRecognitionService.analyze( imageString ) );
     }
 
-    @PostMapping( "/verify" )
+    @PostMapping( "/verify/{roomId}" )
     @PreAuthorize( "hasRole('USER')" )
-    public ResponseEntity<VerificationInformation> verify( @RequestBody final String imageString, @CurrentUser final User currentUser ) {
-        return ResponseEntity.ok( faceRecognitionService.verify( imageString, currentUser ) );
+    public ResponseEntity<VerificationInformation> verify( @RequestBody final String imageString,
+                                                           @PathVariable UUID roomId,
+                                                           @CurrentUser final User currentUser ) throws IOException {
+        return ResponseEntity.ok( faceRecognitionService.verify( imageString, roomId, currentUser ) );
     }
 
 }

@@ -1,10 +1,12 @@
 package com.krasen.web.configuration.websocket;
 
+import com.krasen.web.websocket.SocketHandler;
+import com.krasen.web.websocket.SocketHandshakeInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.socket.config.annotation.*;
-
-import com.krasen.web.websocket.*;
+import org.springframework.web.socket.config.annotation.EnableWebSocket;
+import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
+import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 
 @Configuration
 @EnableWebSocket

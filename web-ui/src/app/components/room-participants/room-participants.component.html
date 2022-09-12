@@ -1,0 +1,29 @@
+<mat-card *ngIf="roomDto">
+    <mat-card-header>
+        <h3>Room: <b>{{roomDto.name}}</b></h3>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="row">
+            <div class="col-3">
+                <mat-card>
+                    <mat-card-header class="ps-0">
+                        <h6>You</h6>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <video #video
+                               class="video-with-name ratio ratio-16x9"
+                               [autoplay]="true"
+                               [muted]="true"
+                               [srcObject]="localStream"></video>
+                        <canvas #canvas class="d-none" width="1920px" height="1080px"></canvas>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div *ngFor="let video of videos" [id]="video.id" class="col-3">
+                <participant-view [participantName]="video.name" [stream]="video.stream" [muted]="false"></participant-view>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.socket.CloseStatus;
-import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.adapter.standard.StandardWebSocketSession;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ import static java.util.Objects.isNull;
 public class RoomHandlerImpl implements RoomHandler {
 
     public static final Logger logger = LoggerFactory.getLogger( RoomHandlerImpl.class );
-    private static final HashMap<Room, HashMap<String, WebSocketSession>> roomToParticipantsMap = new HashMap<>();
+    private static final HashMap<Room, HashMap<String, StandardWebSocketSession>> roomToParticipantsMap = new HashMap<>();
 
     private final RoomRepository roomRepository;
 
@@ -33,34 +33,36 @@ public class RoomHandlerImpl implements RoomHandler {
     }
 
     @Override
-    public void joinRoom( WebSocketSession session ) throws IOException {
+    public void joinRoom( StandardWebSocketSession session ) throws IOException {
         Room room = getRoomFromSession( session );
         if ( isNull( room ) ) {
             return;
         }
 
         roomToParticipantsMap.putIfAbsent( room, new HashMap<>() );
-        HashMap<String, WebSocketSession> participants = roomToParticipantsMap.get( room );
+        HashMap<String, StandardWebSocketSession> participants = roomToParticipantsMap.get( room );
 
-        for ( WebSocketSession webSocketSession : participants.values() ) {
+        for ( StandardWebSocketSession webSocketSession : participants.values() ) {
             if ( !webSocketSession.isOpen() ) {
                 continue;
             }
-            webSocketSession.sendMessage( buildTextMessage( new TextSocketMessage( "initReceive", session.getId() ) ) );
+            synchronized ( webSocketSession ) {
+                webSocketSession.sendMessage( buildTextMessage( new TextSocketMessage( "initReceive", session.getId() ) ) );
+            }
         }
 
         participants.put( session.getId(), session );
-        logger.info( "{} joined room {}", Objects.requireNonNull( session.getPrincipal() ).getName(), room.getName() );
+        logger.info( "[{}] joined room {}", Objects.requireNonNull( session.getPrincipal() ).getName(), room.getName() );
     }
 
     @Override
-    public void leaveRoom( WebSocketSession session ) throws IOException {
+    public void leaveRoom( StandardWebSocketSession session ) throws IOException {
         Room room = getRoomFromSession( session );
         if ( isNull( room ) ) {
             return;
         }
 
-        HashMap<String, WebSocketSession> participants = roomToParticipantsMap.get( room );
+        HashMap<String, StandardWebSocketSession> participants = roomToParticipantsMap.get( room );
         participants.remove( session.getId() );
 
         if ( participants.isEmpty() ) {
@@ -68,26 +70,28 @@ public class RoomHandlerImpl implements RoomHandler {
             return;
         }
 
-        for ( WebSocketSession webSocketSession : participants.values() ) {
+        for ( StandardWebSocketSession webSocketSession : participants.values() ) {
             if ( session.getId().equals( webSocketSession.getId() ) ) {
                 continue;
             }
 
             if ( webSocketSession.isOpen() ) {
-                webSocketSession.sendMessage( buildTextMessage( new TextSocketMessage( "stopReceive", session.getId() ) ) );
+                synchronized ( webSocketSession ) {
+                    webSocketSession.sendMessage( buildTextMessage( new TextSocketMessage( "stopReceive", session.getId() ) ) );
+                }
             }
         }
-        logger.info( "{} left room {}", Objects.requireNonNull( session.getPrincipal() ).getName(), room.getName() );
+        logger.info( "[{}] left room {}", Objects.requireNonNull( session.getPrincipal() ).getName(), room.getName() );
 
     }
 
     @Override
-    public HashMap<String, WebSocketSession> getParticipantsFromRoom( Room room ) {
+    public HashMap<String, StandardWebSocketSession> getParticipantsFromRoom( Room room ) {
         return roomToParticipantsMap.get( room );
     }
 
     @Override
-    public Room getRoomFromSession( WebSocketSession session ) throws IOException {
+    public Room getRoomFromSession( StandardWebSocketSession session ) throws IOException {
         UUID roomId = (UUID) session.getAttributes().get( "roomId" );
 
         if ( isNull( roomId ) ) {

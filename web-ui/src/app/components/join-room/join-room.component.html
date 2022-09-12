@@ -3,20 +3,28 @@
     <div class="col-12">
         <mat-card class="mb-2">
             <form *ngIf=roomJoinForm [formGroup]="roomJoinForm" (ngSubmit)="joinRoom()">
-                <mat-form-field class="mx-3" appearance="standard">
-                    <mat-label>Room ID</mat-label>
-                    <input matInput type="text" formControlName="roomId" />
-                    <mat-error *ngIf="roomJoinForm.get('roomId')?.invalid">Invalid Room ID</mat-error>
-                </mat-form-field>
+                <div class="row align-items-center">
+                    <mat-form-field class="col-4 mx-3" appearance="standard">
+                        <mat-label>Room ID</mat-label>
+                        <input matInput type="text" formControlName="roomId"/>
+                        <mat-error *ngIf="roomJoinForm.get('roomId')?.invalid">Invalid Room ID</mat-error>
+                    </mat-form-field>
 
-                <button *ngIf="!roomId" mat-raised-button color="primary" type="submit">Join</button>
-                <button *ngIf="roomId" mat-raised-button color="primary" (click)="leaveRoom()">Leave</button>
+                    <div class="col-1">
+                        <button *ngIf="!roomId" mat-raised-button color="primary" type="submit">Join</button>
+                        <button *ngIf="roomId" mat-raised-button color="primary" (click)="leaveRoom()">Leave</button>
+                    </div>
 
+                    <div class="col-2">
+                        <participant-view *ngIf="!roomId" [stream]="localStream" [showName]="false"></participant-view>
+                    </div>
+                </div>
             </form>
-
-            <mat-divider class="mb-5"></mat-divider>
-
-            <camera-view *ngIf="roomId" [roomId]="roomId"></camera-view>
         </mat-card>
+
+        <room-participants *ngIf="roomId && localStream"
+                           [roomId]="roomId"
+                           [localStream]="localStream"
+                           (connectionChange)="onConnectionChange($event)"></room-participants>
     </div>
 </div>

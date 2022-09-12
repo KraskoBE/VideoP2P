@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy } from "@angular/core";
+import { AfterViewInit, Component, OnDestroy } from "@angular/core";
 import { AuthenticationService } from "../../services/authentication.service";
 import { CameraService } from "src/app/services/camera.service";
 import { RoomDto } from "src/app/models/roomDto";
@@ -37,7 +37,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     }
 
     public toggleCameraPreview(): void {
-        if( this.localStream?.active ) {
+        if ( this.localStream?.active ) {
             this.localStream.getTracks().forEach( track => track.stop() );
             this.localStream = new MediaStream();
         } else {
@@ -50,6 +50,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     }
 
     public ngOnDestroy(): void {
-        this.localStream?.getVideoTracks().forEach( track => track.stop() );
+        this.localStream?.getTracks().forEach( track => track.stop() );
     }
 }

@@ -1,14 +1,17 @@
 package com.krasen.web.websocket;
 
-import java.io.IOException;
-
+import com.krasen.web.websocket.services.interfaces.MessageHandler;
+import com.krasen.web.websocket.services.interfaces.RoomHandler;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.socket.*;
+import org.springframework.web.socket.CloseStatus;
+import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.adapter.standard.StandardWebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-import com.krasen.web.websocket.services.interfaces.*;
+import java.io.IOException;
 
 @Component
 public class SocketHandler extends TextWebSocketHandler {
@@ -23,18 +26,18 @@ public class SocketHandler extends TextWebSocketHandler {
     }
 
     @Override
-    public void handleTextMessage( @NonNull WebSocketSession session, @NonNull TextMessage message ) throws Exception{
+    public void handleTextMessage( @NonNull WebSocketSession session, @NonNull TextMessage message ) throws Exception {
         messageHandler.handleTextMessage( session, message );
     }
 
     @Override
     public void afterConnectionEstablished( @NonNull WebSocketSession session ) throws Exception {
-        roomHandler.joinRoom( session );
+        roomHandler.joinRoom( (StandardWebSocketSession) session );
     }
 
     @Override
     public void afterConnectionClosed( @NonNull WebSocketSession session, @NonNull CloseStatus status ) throws IOException {
-        roomHandler.leaveRoom( session );
+        roomHandler.leaveRoom( (StandardWebSocketSession) session );
     }
 
 }

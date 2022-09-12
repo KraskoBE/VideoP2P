@@ -16,7 +16,6 @@ import { MatCardModule } from "@angular/material/card";
 import { MatDividerModule } from "@angular/material/divider";
 import { JwtInterceptor } from "./providers/jwt.interceptor";
 import { ErrorInterceptor } from "./providers/error.interceptor";
-import { CameraViewComponent } from "./components/camera-view/camera-view.component";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
@@ -28,6 +27,8 @@ import { MyRoomsComponent } from "./components/my-rooms/my-rooms.component";
 import { UserProfileComponent } from "./components/user-profile/user-profile.component";
 import { RoomListComponent } from "./components/room-list/room-list.component";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { ParticipantViewComponent } from "./components/participant-view/participant-view.component";
+import { RoomParticipantsComponent } from "./components/room-participants/room-participants.component";
 
 @NgModule( {
     declarations: [
@@ -35,11 +36,12 @@ import { MatPaginatorModule } from "@angular/material/paginator";
         LoginComponent,
         HomeComponent,
         RegisterComponent,
-        CameraViewComponent,
         JoinRoomComponent,
         MyRoomsComponent,
         UserProfileComponent,
-        RoomListComponent
+        RoomListComponent,
+        ParticipantViewComponent,
+        RoomParticipantsComponent
     ],
     imports: [
         BrowserModule,
