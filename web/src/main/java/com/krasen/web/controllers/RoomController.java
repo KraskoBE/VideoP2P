@@ -25,8 +25,10 @@ public class RoomController {
 
     @PostMapping
     @PreAuthorize( "hasRole('USER')" )
-    public ResponseEntity<RoomDTO> create( @RequestParam final String roomName, @CurrentUser final User currentUser ) {
-        return ResponseEntity.ok( roomService.create( roomName, currentUser ) );
+    public ResponseEntity<RoomDTO> create( @RequestParam final String roomName,
+                                           @RequestParam final Boolean publicRoom,
+                                           @CurrentUser final User currentUser ) {
+        return ResponseEntity.ok( roomService.create( roomName, currentUser, publicRoom ) );
     }
 
     @GetMapping

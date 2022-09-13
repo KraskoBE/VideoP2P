@@ -32,8 +32,8 @@ export class RoomService {
     constructor( private http: HttpClient ) {
     }
 
-    public createRoom( roomName: string ): Observable<RoomDto> {
-        const params = new HttpParams().append( "roomName", roomName );
+    public createRoom( roomName: string, publicRoom: boolean ): Observable<RoomDto> {
+        const params = new HttpParams().append( "roomName", roomName ).append( "publicRoom", publicRoom );
 
         return this.http.post<RoomDto>( "/api/room", null, { params: params } );
     }

@@ -35,4 +35,7 @@ public class Room {
     @CreatedDate
     private Date createdOn;
 
+    @Column
+    private Boolean publicRoom;
+
 }

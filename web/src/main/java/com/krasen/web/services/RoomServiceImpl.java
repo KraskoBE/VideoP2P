@@ -25,12 +25,13 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public RoomDTO create( String roomName, User currentUser ) {
+    public RoomDTO create( String roomName, User currentUser, Boolean publicRoom ) {
         try {
             return new RoomDTO( roomRepository.save( Room.builder()
                                                              .name( roomName )
                                                              .createdBy( currentUser )
                                                              .createdOn( new Date() )
+                                                             .publicRoom( publicRoom )
                                                              .build() ) );
         } catch ( Exception ex ) {
             throw new GenericException( "Room name already in use" );
@@ -47,7 +48,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public List<RoomDTO> getAllRooms() {
-        return roomRepository.getAllByOrderByCreatedOnDesc().stream().map( RoomDTO::new ).collect( Collectors.toList() );
+        return roomRepository.getAllByPublicRoomTrueOrderByCreatedOnDesc().stream().map( RoomDTO::new ).collect( Collectors.toList() );
     }
 
     @Override

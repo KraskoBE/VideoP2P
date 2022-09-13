@@ -18,4 +18,7 @@ export class ParticipantViewComponent {
     @Input()
     participantName: string;
 
+    @Input()
+    showAlert: boolean = false;
+
 }

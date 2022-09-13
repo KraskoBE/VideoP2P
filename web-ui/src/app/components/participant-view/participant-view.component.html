@@ -5,10 +5,15 @@
 <div *ngIf="showName">
     <mat-card>
         <mat-card-header class="ps-0">
-            <h6>{{participantName}}</h6>
+            <h5>{{participantName}}</h5>
         </mat-card-header>
         <mat-card-content>
-            <video *ngIf="stream" class="video-with-name ratio ratio-16x9" [autoplay]="true" [muted]="muted" [srcObject]="stream"></video>
+            <video *ngIf="stream"
+                   class="video-with-name ratio ratio-16x9"
+                   [class.alert-border]="showAlert"
+                   [autoplay]="true"
+                   [muted]="muted"
+                   [srcObject]="stream"></video>
         </mat-card-content>
     </mat-card>
 </div>

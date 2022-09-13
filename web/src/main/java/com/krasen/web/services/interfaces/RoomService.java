@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface RoomService {
 
-    RoomDTO create( String roomName, User currentUser );
+    RoomDTO create( String roomName, User currentUser, Boolean publicRoom );
 
     List<RoomDTO> getUserRooms( User currentUser );
 

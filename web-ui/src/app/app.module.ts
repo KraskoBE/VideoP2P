@@ -29,6 +29,7 @@ import { RoomListComponent } from "./components/room-list/room-list.component";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { ParticipantViewComponent } from "./components/participant-view/participant-view.component";
 import { RoomParticipantsComponent } from "./components/room-participants/room-participants.component";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 
 @NgModule( {
     declarations: [
@@ -60,7 +61,8 @@ import { RoomParticipantsComponent } from "./components/room-participants/room-p
         MatToolbarModule,
         MatTooltipModule,
         MatTableModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatCheckboxModule
     ],
     providers: [
         {

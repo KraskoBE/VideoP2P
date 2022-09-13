@@ -21,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.stream.Collectors;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -95,6 +96,7 @@ public class AuthServiceImpl implements AuthService {
                             .email( userDetails.getEmail() )
                             .firstName( userDetails.getFirstName() )
                             .lastName( userDetails.getLastName() )
+                            .roles( userDetails.getRoles().stream().map( role -> role.getName().name() ).collect( Collectors.toList() ) )
                             .build();
     }
 

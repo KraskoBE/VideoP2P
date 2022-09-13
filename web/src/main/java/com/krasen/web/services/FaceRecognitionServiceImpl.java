@@ -20,7 +20,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Base64;
-import java.util.Date;
 import java.util.UUID;
 
 import static java.util.Objects.isNull;
@@ -76,10 +75,7 @@ public class FaceRecognitionServiceImpl implements FaceRecognitionService {
         }
 
         if ( isNull( verificationInformation ) || !verificationInformation.verified ) {
-            this.messageHandler.alertForFailedVerification( room,
-                                                            String.format( "%s failed face verification on %s",
-                                                                           user.getUsername(),
-                                                                           new Date() ) );
+            this.messageHandler.alertForFailedVerification( room, user.getUsername() );
         }
 
         return verificationInformation;

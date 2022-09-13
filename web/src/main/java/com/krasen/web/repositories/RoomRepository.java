@@ -12,6 +12,6 @@ public interface RoomRepository extends JpaRepository<Room, UUID> {
 
     List<Room> getRoomsByCreatedByUsernameOrderByCreatedOnDesc( String username );
 
-    List<Room> getAllByOrderByCreatedOnDesc();
+    List<Room> getAllByPublicRoomTrueOrderByCreatedOnDesc();
 
 }

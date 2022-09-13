@@ -3,11 +3,11 @@
         <div class="col-5">
             <mat-card class="mb-2">
                 <mat-card-header>
-                    <h3>Hi {{authenticationService.currentUser.firstName}} {{authenticationService.currentUser.lastName}}</h3>
+                    <h3 class="text-capitalize">Hi {{authenticationService.currentUser.firstName}} {{authenticationService.currentUser.lastName}}</h3>
                 </mat-card-header>
             </mat-card>
 
-            <mat-card class="mb-2">
+            <mat-card class="mb-2" *ngIf="authenticationService.isCurrentUserAdmin()">
                 <mat-card-header>
                     <h3>Your Rooms</h3>
                 </mat-card-header>
@@ -43,7 +43,7 @@
         <div class="col-7">
             <mat-card>
                 <mat-card-header>
-                    <h3>Available rooms</h3>
+                    <h3>Public rooms</h3>
                 </mat-card-header>
 
                 <mat-card-content>

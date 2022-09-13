@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, AfterViewInit, OnChanges, SimpleChanges } from "@angular/core";
+import { AfterViewInit, Component, Input, OnChanges, SimpleChanges, ViewChild } from "@angular/core";
 import { RoomDto } from "src/app/models/roomDto";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
@@ -18,13 +18,13 @@ export class RoomListComponent implements OnChanges, AfterViewInit {
     @Input() pageSizeOptions: number[] = [ 5, 10, 15 ];
 
     dataSource: MatTableDataSource<RoomDto> = new MatTableDataSource<RoomDto>();
-    displayedColumns: string[] = [ "name", "id", "createdBy", "createdOn", "actions" ];
+    displayedColumns: string[] = [ "name", "id", "createdBy", "createdOn", "publicRoom", "actions" ];
 
     constructor( private router: Router ) {
     }
 
     public ngOnChanges( changes: SimpleChanges ): void {
-        if( changes[ "rooms" ] && changes[ "rooms" ].currentValue ) {
+        if ( changes[ "rooms" ] && changes[ "rooms" ].currentValue ) {
             this.dataSource.data = changes[ "rooms" ].currentValue;
         }
     }

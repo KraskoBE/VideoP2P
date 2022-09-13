@@ -14,7 +14,7 @@ export class AppComponent {
     constructor( public authenticationService: AuthenticationService, private route: ActivatedRoute, private router: Router ) {
 
         router.events.subscribe( event => {
-            if( event instanceof NavigationEnd ) {
+            if ( event instanceof NavigationEnd ) {
                 this.windowTitle = route.root.firstChild?.snapshot.data[ "title" ];
             }
         } );

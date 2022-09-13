@@ -3,10 +3,9 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { first } from "rxjs/operators";
 import { AuthenticationService } from "../../services/authentication.service";
-import { User } from "../../models/user";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { LoginRequest } from "../../models/loginRequest";
-import {LoginResponse} from "../../models/loginResponse";
+import { LoginResponse } from "../../models/loginResponse";
 
 @Component( {
     selector: "login",
@@ -22,7 +21,7 @@ export class LoginComponent implements OnInit {
                  private router: Router,
                  private snackBar: MatSnackBar,
                  private authenticationService: AuthenticationService ) {
-        if( this.authenticationService.currentUser ) {
+        if ( this.authenticationService.currentUser ) {
             this.router.navigate( [ "/" ] );
         }
     }
@@ -38,7 +37,7 @@ export class LoginComponent implements OnInit {
     login(): void {
         this.loginFormGroup.markAsDirty();
 
-        if( this.loginFormGroup.invalid ) {
+        if ( this.loginFormGroup.invalid ) {
             return;
         }
 

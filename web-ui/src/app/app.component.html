@@ -29,7 +29,7 @@
                 Join Room
             </a>
 
-            <a mat-list-item routerLink="/my-rooms">
+            <a mat-list-item routerLink="/my-rooms" *ngIf="authenticationService.isCurrentUserAdmin()">
                 <mat-icon mat-list-icon>list</mat-icon>
                 My Rooms
             </a>

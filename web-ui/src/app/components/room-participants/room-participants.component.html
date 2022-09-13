@@ -8,7 +8,7 @@
             <div class="col-3">
                 <mat-card>
                     <mat-card-header class="ps-0">
-                        <h6>You</h6>
+                        <h5>You</h5>
                     </mat-card-header>
                     <mat-card-content>
                         <video #video
@@ -22,7 +22,10 @@
             </div>
 
             <div *ngFor="let video of videos" [id]="video.id" class="col-3">
-                <participant-view [participantName]="video.name" [stream]="video.stream" [muted]="false"></participant-view>
+                <participant-view [participantName]="video.name"
+                                  [stream]="video.stream"
+                                  [showAlert]="video.alert"
+                                  [muted]="true"></participant-view>
             </div>
         </div>
     </mat-card-content>

@@ -3,4 +3,5 @@ export interface RoomDto {
     name: string;
     createdBy: string;
     createdOn: Date;
+    publicRoom: boolean;
 }

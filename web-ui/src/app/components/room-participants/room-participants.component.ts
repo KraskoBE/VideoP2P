@@ -30,7 +30,7 @@ export class RoomParticipantsComponent implements OnInit, OnDestroy {
     @ViewChild( "video" ) videoRef!: ElementRef;
     @ViewChild( "canvas" ) canvasRef!: ElementRef;
 
-    public videos: { id: string, name: string, stream: MediaStream }[] = [];
+    public videos: { id: string, name: string, alert: boolean, stream: MediaStream }[] = [];
     public roomDto: RoomDto;
 
     private ngUnsubscribe: Subject<void> = new Subject<void>();
@@ -78,8 +78,7 @@ export class RoomParticipantsComponent implements OnInit, OnDestroy {
                     this.notificationService.show( `Joined room: ${ this.roomId }` );
                     this.connectionChange.emit( true );
                     if ( this.roomDto.createdBy != this.authenticationService.currentUser?.username ) {
-                        console.log( "interval" );
-                        interval( 5000 ).pipe( takeUntil( this.ngUnsubscribe ) ).subscribe( () => this.sendImageForVerification() );
+                        interval( 9000 ).pipe( takeUntil( this.ngUnsubscribe ) ).subscribe( () => this.sendImageForVerification() );
                     }
                 }
             },
@@ -123,7 +122,7 @@ export class RoomParticipantsComponent implements OnInit, OnDestroy {
                 this.peers.get( msg.value.socketId )?.signal( msg.value.signal );
                 break;
             case "alert":
-                this.notificationService.show( msg.value );
+                this.handleAlertMessage( msg.value );
                 break;
         }
     }
@@ -148,7 +147,7 @@ export class RoomParticipantsComponent implements OnInit, OnDestroy {
         this.peers.get( socketId )?.on( "stream", stream => {
             this.userService.getUsernameFromRoom( socketId, this.roomId )
                 .pipe( takeUntil( this.ngUnsubscribe ) )
-                .subscribe( ( user: User ) => this.videos.push( { id: socketId, name: user.username, stream: stream } ) );
+                .subscribe( ( user: User ) => this.videos.push( { id: socketId, name: user.username, alert: false, stream: stream } ) );
 
         } );
     }
@@ -159,10 +158,20 @@ export class RoomParticipantsComponent implements OnInit, OnDestroy {
     }
 
     private sendImageForVerification(): void {
-        console.log( "dai" );
         this.canvas.getContext( "2d" )?.drawImage( this.video, 0, 0, 1920, 1080 );
         const base64Image = this.canvas.toDataURL( "image/jpeg" );
 
         this.faceRecognitionService.verify( base64Image, this.roomDto.id ).subscribe();
+    }
+
+    private handleAlertMessage( message: string ) {
+        const userVideo = this.videos.find( video => video.name === message );
+        if ( userVideo ) {
+            console.log( "found" );
+            userVideo.alert = true;
+            setTimeout( () => {
+                userVideo.alert = false;
+            }, 7000 );
+        }
     }
 }
