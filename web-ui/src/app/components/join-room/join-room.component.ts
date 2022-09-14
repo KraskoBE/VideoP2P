@@ -11,7 +11,6 @@ import { CameraService } from "../../services/camera.service";
 export class JoinRoomComponent implements AfterViewInit, OnDestroy {
 
     public localStream: MediaStream;
-
     roomJoinForm: FormGroup;
     roomId: string;
 

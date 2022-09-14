@@ -24,7 +24,7 @@ public class RoomController {
     }
 
     @PostMapping
-    @PreAuthorize( "hasRole('USER')" )
+    @PreAuthorize( "hasRole('ADMIN')" )
     public ResponseEntity<RoomDTO> create( @RequestParam final String roomName,
                                            @RequestParam final Boolean publicRoom,
                                            @CurrentUser final User currentUser ) {

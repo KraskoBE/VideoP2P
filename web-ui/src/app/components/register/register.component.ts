@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
                  private router: Router,
                  private snackBar: MatSnackBar,
                  private authenticationService: AuthenticationService ) {
-        if( this.authenticationService.currentUser ) {
+        if ( this.authenticationService.currentUser ) {
             this.router.navigate( [ "/" ] );
         }
     }
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     public register(): void {
         this.registerFormGroup.markAsDirty();
 
-        if( this.registerFormGroup.invalid ) {
+        if ( this.registerFormGroup.invalid ) {
             return;
         }
 

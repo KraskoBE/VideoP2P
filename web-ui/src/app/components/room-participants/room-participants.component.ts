@@ -69,10 +69,10 @@ export class RoomParticipantsComponent implements OnInit, OnDestroy {
         new_uri += loc.host;
         new_uri += loc.pathname;
 
-        new_uri = "ws:localhost"; // comment this for prod
+        new_uri = "ws:localhost:8080/"; // comment this for prod
 
         this.socketConnection = webSocket( {
-            url: `${ new_uri }:8080/socket?authToken=${ this.authenticationService.currentUser?.token }&roomId=${ this.roomId }`,
+            url: `${ new_uri }socket?authToken=${ this.authenticationService.currentUser?.token }&roomId=${ this.roomId }`,
             openObserver: {
                 next: ( event ) => {
                     this.notificationService.show( `Joined room: ${ this.roomId }` );
